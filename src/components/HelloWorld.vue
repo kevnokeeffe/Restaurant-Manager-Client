@@ -5,7 +5,7 @@
       <p class="lead">This is a a restaurant manager application, built with MongoDB, ExpressJS, VueJS and NodeJS technologies.</p>
       <hr class="my-4">
       <p>Click below to begin managing your restaurant. </p>
-      <a class="btn btn-success btn-lg" href="#" role="button">Manage</a>
+      <router-link class="btn btn-success btn-lg" to="/order">Place an Order</router-link>
     </div>
   </div>
 </template>
