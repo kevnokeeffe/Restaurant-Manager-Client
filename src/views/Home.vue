@@ -12,6 +12,9 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  beforeEnter:(to,from,next)=>{
+
   }
 }
 </script>

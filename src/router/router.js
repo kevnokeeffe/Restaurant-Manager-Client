@@ -7,7 +7,7 @@ import OrderEdit from "../views/orders/OrderEdit";
 import OrdersAll from "../views/orders/OrdersAll";
 
 Vue.use(VueRouter)
-
+const isLoggedIn = false;
 const routes = [
   {
     path: '/',
@@ -17,27 +17,62 @@ const routes = [
   {
     path: '/login',
     name: 'log-in',
-    component: Login
+    component: Login,
+    beforeEnter: (toolbar,from,next)=>{
+      if(!isLoggedIn){
+        next();
+      }else{
+        next('/login');
+      }
+    }
   },
   {
     path: '/register',
     name: 'register',
-    component: Register
+    component: Register,
+    beforeEnter: (toolbar,from,next)=>{
+      if(!isLoggedIn){
+        next();
+      }else{
+        next('/login');
+      }
+    }
   },
   {
     path: '/order',
     name: 'orders-all',
-    component: OrdersAll
+    component: OrdersAll,
+    beforeEnter: (toolbar,from,next)=>{
+      if(isLoggedIn){
+        next();
+      }else{
+        next('/login');
+      }
+    }
   },
   {
     path: '/order/new',
     name: 'orders-create',
-    component: OrderCreate
+    component: OrderCreate,
+    beforeEnter: (toolbar,from,next)=>{
+      if(isLoggedIn){
+        next();
+      }else{
+        next('/login');
+      }
+    }
   },
   {
     path: '/order/:id/',
     name: 'edit',
-    component: OrderEdit
+    component: OrderEdit,
+    beforeEnter: (toolbar,from,next)=>{
+      if(isLoggedIn){
+        next();
+      }else{
+        next('/login');
+      }
+    }
   },
   {
     path: '*',
@@ -56,5 +91,14 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+// routes.beforeEach((to,from,next)=>{
+//   //next('/home');
+//   if(isLoggedIn){
+//     next();
+//   }else{
+//     next('/login')
+//   }
+// })
 
 export default router
