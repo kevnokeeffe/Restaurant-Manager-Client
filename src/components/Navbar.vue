@@ -49,7 +49,7 @@
                     </li>
                     <li class="nav-item">
 
-                            <h3>Welcome, {{this.$store.state.fName}}!</h3>
+                            <h3>Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User'}}!</h3>
                     </li>
 
                 </ul>

@@ -1,24 +1,24 @@
 import store from '../../store'
 import {http} from './HttpService'
+
+
+
 export function isLoggedIn(){
 const token = localStorage.getItem('token');
 return token != null;
 }
 
 export function login(user){
-    return http().post('/auth', user)
+    return http().post('api/user/login', user)
         .then(res =>{
             if (res) {
-                const fakeToken ={
-                    token: 'my-token'
+                setToken(res.data.token)
                 }
-                setToken(fakeToken);
-            }
         });
 }
 
 function setToken(token){
-    localStorage.setItem('token',token);
+    localStorage.setItem('token', JSON.stringify(token));
     store.dispatch('authenticate');
 }
 
@@ -35,6 +35,6 @@ export function getUserId(){
 }
 
 export function registerUser(user){
-    return http().post('/register',user);
+    return http().post('api/user/register',user);
 }
 

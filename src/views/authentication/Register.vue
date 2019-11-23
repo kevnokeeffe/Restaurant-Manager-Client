@@ -40,10 +40,26 @@
             }
         },
         methods:{
-            onSubmit:function(){
-                auth.login();
+            onSubmit: async function(){
+            const user = {
+                fName:this.fName,
+                lName:this.lName,
+                email:this.email,
+                password:this.password
+                };
+                const registerPromise = auth.registerUser(user);
+                await Promise.all([
+                    registerPromise,
+                    //loginPromise
+                ]);
+                const loginPromise  = auth.login(user);
+                await Promise.all([
+                    //registerPromise,
+                    loginPromise
+                ]);
                 this.$router.push({name: 'home'});
             }
+
         }
     }
 </script>

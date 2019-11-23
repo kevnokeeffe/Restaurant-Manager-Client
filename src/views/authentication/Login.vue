@@ -1,15 +1,15 @@
 <template>
     <div>
     <h1>Login Route</h1>
-    <form class="custom-form" v-on:submit="onSubmit">
+    <form class="custom-form" v-on:submit.prevent="onSubmit">
         <div class="form-group">
             <label for="inputEmail">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
+            <input v-model="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
+            <input v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-secondary">Submit</button>
@@ -23,10 +23,24 @@
     import * as auth from '../../services/AuthService';
     export default {
         name: "Login",
+        data(){
+            return{
+                email : '',
+                password: ''
+            }
+        },
         methods:{
-            onSubmit:function(event){
+            onSubmit: async function(event){
                 event.preventDefault();
-                auth.login();
+                const user = {
+                    email:this.email,
+                    password:this.password
+                };
+                const loginPromise = auth.login(user)
+                await Promise.all([
+                   // registerPromise,
+                    loginPromise
+                ]);
                 this.$router.push({name: 'home'});
             }
         }
