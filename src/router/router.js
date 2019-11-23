@@ -18,7 +18,7 @@ const routes = [
     path: '/login',
     name: 'log-in',
     component: Login,
-    beforeEnter: (toolbar,from,next)=>{
+    beforeEnter: (to,from,next)=>{
       if(!isLoggedIn){
         next();
       }else{
@@ -30,7 +30,7 @@ const routes = [
     path: '/register',
     name: 'register',
     component: Register,
-    beforeEnter: (toolbar,from,next)=>{
+    beforeEnter: (to,from,next)=>{
       if(!isLoggedIn){
         next();
       }else{
@@ -83,22 +83,13 @@ const routes = [
     name: 'about',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   base: process.env.BASE_URL,
   routes
-})
-
-// routes.beforeEach((to,from,next)=>{
-//   //next('/home');
-//   if(isLoggedIn){
-//     next();
-//   }else{
-//     next('/login')
-//   }
-// })
+});
 
 export default router

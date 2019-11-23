@@ -9,6 +9,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -47,12 +48,10 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link  class="nav-link" exact>
-                            <router-link  class="nav-link" exact>
-                            Kevin
-                            </router-link>
-                        </router-link>
+
+                            <h3>Welcome, {{this.$store.state.fName}}!</h3>
                     </li>
+
                 </ul>
             </div>
         </nav>
@@ -65,11 +64,6 @@
     }
     nav.navbar{
         height: 4rem;
-    }
-
-    a.navbar-brand{
-        text-transform: uppercase;
-        letter-spacing: 3px;
     }
 
     li.nav-item a{

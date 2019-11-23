@@ -14,8 +14,12 @@
   import Footer from "./components/Footer";
   export default {
     name: 'app',
-    components: {Footer, Navbar}
+    components: {Footer, Navbar},
+    beforeCreate: function(){
+      this.$store.dispatch('authenticate');
+    }
   }
+
 </script>
 
 <style>

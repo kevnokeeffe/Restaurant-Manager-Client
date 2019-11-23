@@ -13,3 +13,15 @@
 .btn-success:hover{
     background-color: #3da978;
 }
+
+@media screen and (max-width: 767px){
+    div#navbarCollapse{
+        width:100% ;
+        position: fixed;
+        top:75px;
+        left:0;
+        padding-left: 20px;
+        padding-bottom: 5px;
+        background-color: #373F46;
+    }
+}
