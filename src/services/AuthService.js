@@ -12,13 +12,20 @@ export function login(user){
     return http().post('api/user/login', user)
         .then(res =>{
             if (res) {
+                console.log(res)
                 setToken(res.data.token)
                 }
         });
 }
 
+export function logout(){
+    localStorage.clear();
+    store.dispatch('authenticate')
+    //return http().get('api/user/logout')
+}
+
 function setToken(token){
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('token', token);
     store.dispatch('authenticate');
 }
 

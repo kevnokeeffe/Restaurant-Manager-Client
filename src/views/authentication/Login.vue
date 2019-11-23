@@ -38,8 +38,7 @@
                 };
                 const loginPromise = auth.login(user)
                 await Promise.all([
-                   // registerPromise,
-                    loginPromise
+                  loginPromise
                 ]);
                 this.$router.push({name: 'home'});
             }

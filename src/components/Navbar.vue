@@ -13,43 +13,32 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
+                        <router-link to="/" exact>
                         <router-link to="/" class="nav-link" exact>
-                            <router-link to="/" class="nav-link" exact>
                             Home
-                            </router-link>
+                        </router-link>
                         </router-link>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/order" class="nav-link" exact>
-                            <router-link to="/order" class="nav-link" exact>
                             Orders
-                            </router-link>
                         </router-link>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="!$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/register" class="nav-link" exact>
-                            <router-link to="/register" class="nav-link" exact>
                             Register
-                            </router-link>
                         </router-link>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="!$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/login" class="nav-link" exact>
-                            <router-link to="/login" class="nav-link" exact>
                             Login
-                            </router-link>
                         </router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link to="/logout" class="nav-link" exact>
-                            <router-link to="/logout" class="nav-link" exact>
-                           Logout
-                            </router-link>
-                        </router-link>
+                    <li v-if="$store.state.isLoggedIn" class="nav-item">
+                           <a class="nav-link" v-on:click.prevent="logout()" href="#" >Logout</a>
                     </li>
-                    <li class="nav-item">
-
-                            <h3>Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User'}}!</h3>
+                    <li class="h4User">
+                            <a> Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User'}}!</a>
                     </li>
 
                 </ul>
@@ -58,6 +47,20 @@
     </header>
 </template>
 
+<script>
+import * as auth from '../services/AuthService';
+
+    export default {
+        name: 'Navbar',
+        methods:{
+            logout: function() {
+            auth.logout();
+            this.$router.push({name: 'home'})
+            }
+        }
+    }
+</script>
+
 <style>
     .custom-bg-dark{
         background-color: #373F46 !important;
@@ -65,7 +68,12 @@
     nav.navbar{
         height: 4rem;
     }
+    li.h4User{
 
+        margin-top: 2.5%;
+        margin-left: 20px;
+        font-family: sans-serif;
+    }
     li.nav-item a{
         text-transform: uppercase;
     }
