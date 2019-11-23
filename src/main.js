@@ -4,8 +4,11 @@ import router from './router/router'
 import store from '../store'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap'
+import BootstrapVue from 'bootstrap-vue'
 
-Vue.config.productionTip = false
+Vue.use(BootstrapVue);
+//or false
+Vue.config.productionTip = process.env.NODE_ENV ==='production';
 
 new Vue({
   router,
