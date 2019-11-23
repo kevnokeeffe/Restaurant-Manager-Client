@@ -12,12 +12,10 @@ export default {
   name: 'home',
   components: {
     HelloWorld
-  },
-  beforeEnter:(to,from,next)=>{
-
   }
 }
 </script>
+
 <style>
   div#custom-home{
     height:100%;
