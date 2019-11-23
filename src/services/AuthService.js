@@ -1,6 +1,6 @@
 import store from '../../store'
 import {http} from './HttpService'
-
+import jwt from 'jsonwebtoken'
 
 
 export function isLoggedIn(){
@@ -34,7 +34,11 @@ export function getToken(){
 }
 
 export function getEmail() {
-    return "kevokeeffe@gmail.com";
+    const token = decodeToken();
+    if(!token) {
+        return null;
+    }
+    return token.user.email;
 }
 
 export function getName() {
@@ -42,10 +46,22 @@ export function getName() {
 }
 
 export function getUserId(){
-    return 1;
+    const token = decodeToken();
+    if(!token) {
+        return null;
+    }
+    return token.user.id;
 }
 
 export function registerUser(user){
     return http().post('api/user/register',user);
+}
+
+export function decodeToken(){
+    const token = getToken();
+    if(!token){
+        return null;
+    }
+    return jwt.decode(token);
 }
 
