@@ -5,9 +5,10 @@ import Register from '../views/authentication/Register';
 import OrderCreate from "../views/orders/OrderCreate";
 import OrderEdit from "../views/orders/OrderEdit";
 import OrdersAll from "../views/orders/OrdersAll";
+import * as auth from '../services/AuthService';
 
 Vue.use(VueRouter)
-const isLoggedIn = false;
+
 const routes = [
   {
     path: '/',
@@ -19,10 +20,10 @@ const routes = [
     name: 'log-in',
     component: Login,
     beforeEnter: (to,from,next)=>{
-      if(!isLoggedIn){
+      if(auth.isLoggedIn){
         next();
       }else{
-        next('/login');
+        next('/');
       }
     }
   },
@@ -31,10 +32,10 @@ const routes = [
     name: 'register',
     component: Register,
     beforeEnter: (to,from,next)=>{
-      if(!isLoggedIn){
+      if(auth.isLoggedIn){
         next();
       }else{
-        next('/login');
+        next('/');
       }
     }
   },
@@ -43,10 +44,10 @@ const routes = [
     name: 'orders-all',
     component: OrdersAll,
     beforeEnter: (toolbar,from,next)=>{
-      if(isLoggedIn){
+      if(auth.isLoggedIn){
         next();
       }else{
-        next('/login');
+        next('/');
       }
     }
   },
@@ -55,10 +56,10 @@ const routes = [
     name: 'orders-create',
     component: OrderCreate,
     beforeEnter: (toolbar,from,next)=>{
-      if(isLoggedIn){
+      if(auth.isLoggedIn){
         next();
       }else{
-        next('/login');
+        next('/');
       }
     }
   },
@@ -67,10 +68,10 @@ const routes = [
     name: 'edit',
     component: OrderEdit,
     beforeEnter: (toolbar,from,next)=>{
-      if(isLoggedIn){
+      if(auth.isLoggedIn){
         next();
       }else{
-        next('/login');
+        next('/');
       }
     }
   },

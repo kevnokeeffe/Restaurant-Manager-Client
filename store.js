@@ -4,7 +4,7 @@ import * as auth from './src/services/AuthService';
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     isLoggedIn: false,
     apiUrl: 'http://localhost:3000',
@@ -34,3 +34,5 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
+export default store

@@ -55,7 +55,8 @@ import * as auth from '../services/AuthService';
         methods:{
             logout: function() {
             auth.logout();
-            this.$router.push({name: 'home'})
+            const path = `/`
+                if (this.$route.path !== path) this.$router.push(path)
             }
         }
     }

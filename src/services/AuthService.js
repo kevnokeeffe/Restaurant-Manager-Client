@@ -29,6 +29,10 @@ function setToken(token){
     store.dispatch('authenticate');
 }
 
+export function getToken(){
+    return localStorage.getItem('token');
+}
+
 export function getEmail() {
     return "kevokeeffe@gmail.com";
 }
