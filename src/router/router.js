@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Login from '../views/authentication/Login';
-import Register from '../views/authentication/Register';
 import OrderCreate from "../views/orders/OrderCreate";
 import OrderEdit from "../views/orders/OrderEdit";
 import OrdersAll from "../views/orders/OrdersAll";
@@ -17,8 +15,8 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'log-in',
-    component: Login,
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/authentication/Login.vue'),
     beforeEnter: (to,from,next)=>{
       if(auth.isLoggedIn){
         next();
@@ -30,7 +28,7 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: Register,
+    component: () => import(/* webpackChunkName: "register" */ '../views/authentication/Register.vue'),
     beforeEnter: (to,from,next)=>{
       if(auth.isLoggedIn){
         next();

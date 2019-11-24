@@ -38,7 +38,7 @@
                            <a class="nav-link" v-on:click.prevent="logout()" href="#" >Logout</a>
                     </li>
                     <li class="h4User">
-                            <a> Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User'}}!</a>
+                            <a> Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User'}}</a>
                     </li>
 
                 </ul>

@@ -40,7 +40,7 @@
                 await Promise.all([
                   loginPromise
                 ]);
-                this.$router.push({name: 'home'});
+                await this.$router.push({path: '/'});
             }
         }
     }

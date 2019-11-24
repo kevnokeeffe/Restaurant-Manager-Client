@@ -38,11 +38,19 @@ export function getEmail() {
     if(!token) {
         return null;
     }
-    return token.user.email;
+    try {
+        return token.user.email;
+    }catch(error){console.log('email err')}
 }
 
 export function getName() {
-    return "Kevin"
+    const token = decodeToken();
+    if(!token) {
+        return null;
+    }
+    try {
+        return token.user.fName;
+    }catch(error){console.log('fName err')}
 }
 
 export function getUserId(){
@@ -50,7 +58,9 @@ export function getUserId(){
     if(!token) {
         return null;
     }
-    return token.user.id;
+    try {
+        return token.user.id;
+    }catch(error){console.log('id err')}
 }
 
 export function registerUser(user){

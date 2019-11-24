@@ -9,7 +9,7 @@ export function getOrderById(id) {
 }
 
 export function createOrder(order) {
-    return http().post(`/order/`,order);
+    return http().post(`/order/add`,order);
 }
 
 export function deleteOrder(id) {
