@@ -7,7 +7,6 @@ import 'bootstrap'
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(BootstrapVue);
-//or false
 Vue.config.productionTip = process.env.NODE_ENV ==='production';
 
 new Vue({
