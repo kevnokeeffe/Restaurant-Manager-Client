@@ -1,27 +1,15 @@
 <template>
-  <div class="d-flex flex-column">
-    <div class="mb-4">
-      <h1>Orders All</h1>
-      <router-link to="/order/new" class="btn btn-success ml-2"
-        >Create Order</router-link
-      >
-    </div>
-    <div
-      class="d-flex flex-wrap justify-content-center"
-    >
-      <div
-
-        class="card  text-white bg-dark"
-        style="width: 100%"
-      >
-        <div class="card-body">
-          <div id="app1">
+  <div id="app1">
+    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messageTitle}}</h3>
+      <div class="card custom-bg-dark">
+          <div class="card-body">
             <v-client-table :columns="columns" :data="orders" :options="options">
+              <a slot="remove" slot-scope="props" class="btn btn-outline-danger align-items-center btn-sm" @click="deleteOrder(props.row._id)">Delete</a>
+              <a slot="edit" slot-scope="props" class="btn btn-outline-warning btn-sm" @click="updateOrder(props.row._id)">Edit</a>
             </v-client-table>
-          </div>
-        </div>
-      </div>
+      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/order/new">Place an Order</router-link>
     </div>
+      </div>
   </div>
 </template>
 
@@ -39,8 +27,10 @@ export default {
       orders: [],
       currentOrderId: null,
       errors: [],
-      columns: ['_id', 'starter', 'main', 'desert','drink','price','payed','message'],
+      columns: ['_id', 'starter', 'main', 'desert','drink','price','message','remove','edit'],
       options: {
+        perPage: 10,
+        filterable:[],
         headings: {
           _id: 'ID',
           starter: 'Starter',
@@ -48,13 +38,16 @@ export default {
           desert: 'Dessert',
           drink: 'Drink',
           price: 'Price',
-          payed: 'Payed',
-          message:'Message'
-        }
-      }
+          remove: 'Remove',
+          message:'Message',
+          edit: 'Edit'
+        },
+        sortable: [],
+      },
+      props: ['_id']
     };
   },
-  // Fetches Donations when the component is created.
+
   created () {
     this.loadOrders()
   },
@@ -70,22 +63,60 @@ export default {
                 this.errors.push(error)
                 console.log(error)
               })
+    },
+
+    pay: function(id){
+        orderService.payOrder(id)
+      },
+
+    deleteOrder: function (id) {
+      this.$swal({
+        title: 'Are you totaly sure?',
+        text: 'You can\'t Undo this action',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'OK Delete it',
+        cancelButtonText: 'Cancel',
+        showCloseButton: true,
+        showLoaderOnConfirm: true
+      }).then((result) => {
+        console.log('SWAL Result : ' + result)
+        if (result.value === true) {
+          orderService.deleteOrder(id)
+                  .then(response => {
+                    // JSON responses are automatically parsed.
+                    this.message = response.data
+                    console.log(this.message)
+                    this.loadOrders()
+                    // Vue.nextTick(() => this.$refs.vuetable.refresh())
+                    this.$swal('Deleted', 'You successfully deleted this Order ' + JSON.stringify(response.data, null, 5), 'success')
+                  })
+                  .catch(error => {
+                    this.$swal('ERROR', 'Something went wrong trying to Delete ' + error, 'error')
+                    this.errors.push(error)
+                    console.log(error)
+                  })
+        } else {
+          this.$swal('Cancelled', 'Your Order has not been deleted!', 'info')
+        }
+      })
     }
   },
-  // beforeRouteEnter(to, from, next) {
-  //   orderService.getAllOrders().then(res => {
-  //     //console.log(res);
-  //     next(vm => {
-  //       vm.order = res.data.order;
-  //     });
-  //   });
-  // }
 };
+
 </script>
 
 <style scoped>
+
+    .vue-title {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 45pt;
+        margin-bottom: 10px;
+    }
+
   #app1 {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
   }
 </style>

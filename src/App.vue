@@ -23,6 +23,9 @@
 </script>
 
 <style>
+  .VueTables__sortable {
+    cursor: pointer;
+  }
   div#app-container{
     position: fixed;
     top: 60px;
