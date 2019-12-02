@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav id="nav" class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
+        <nav id="nav" @blur="close" class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
             <router-link to="/" class="navbar-brand">
                 <img style="max-height:25px " alt="Vue logo" src="../assets/logo.png">
                 Restaurant Manager
@@ -57,6 +57,11 @@ import * as auth from '../services/AuthService';
             auth.logout();
             const path = `/`
                 if (this.$route.path !== path) this.$router.push(path)
+            },
+            close() {
+                setTimeout(() => {
+                    this.state = false;
+                }, 200);
             }
         }
     }

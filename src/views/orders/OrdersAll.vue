@@ -7,23 +7,18 @@
       >
     </div>
     <div
-      v-if="orders && orders.length > 0"
-      class="d-flex flex-wrap justify-content-start"
+      class="d-flex flex-wrap justify-content-center"
     >
       <div
-        v-for="order in orders"
-        v-bind:key="order._id"
-        class="card mb-2 ml-2 text-white bg-dark"
-        style="width: 18rem;"
+
+        class="card  text-white bg-dark"
+        style="width: 100%"
       >
         <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <h5 class="card-title">Bill ID:{{ order.billId }}</h5>
+          <div id="app1">
+            <v-client-table :columns="columns" :data="orders" :options="options">
+            </v-client-table>
           </div>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
         </div>
       </div>
     </div>
@@ -32,24 +27,65 @@
 
 <script>
 import * as orderService from "../../services/OrderService";
+import Vue from 'vue'
+import VueTables from 'vue-tables-2'
 
+Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
 export default {
   name: "OrdersAll",
   data: function() {
     return {
-      orders: null,
-      currentOrderId: null
+      messageTitle:'List of Orders',
+      orders: [],
+      currentOrderId: null,
+      errors: [],
+      columns: ['_id', 'starter', 'main', 'desert','drink','price','payed','message'],
+      options: {
+        headings: {
+          _id: 'ID',
+          starter: 'Starter',
+          main: 'Main',
+          desert: 'Dessert',
+          drink: 'Drink',
+          price: 'Price',
+          payed: 'Payed',
+          message:'Message'
+        }
+      }
     };
   },
-  beforeRouteEnter(to, from, next) {
-    orderService.getAllOrders().then(res => {
-      //console.log(res);
-      next(vm => {
-        vm.order = res.data.order;
-      });
-    });
-  }
+  // Fetches Donations when the component is created.
+  created () {
+    this.loadOrders()
+  },
+  methods: {
+    loadOrders: function () {
+      orderService.getAllOrders()
+              .then(response => {
+                // JSON responses are automatically parsed.
+                this.orders = response.data
+                console.log(this.orders)
+              })
+              .catch(error => {
+                this.errors.push(error)
+                console.log(error)
+              })
+    }
+  },
+  // beforeRouteEnter(to, from, next) {
+  //   orderService.getAllOrders().then(res => {
+  //     //console.log(res);
+  //     next(vm => {
+  //       vm.order = res.data.order;
+  //     });
+  //   });
+  // }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  #app1 {
+    width: 60%;
+    margin: 0 auto;
+  }
+</style>

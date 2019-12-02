@@ -2,7 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import OrderCreate from "../views/orders/OrderCreate";
 import OrderEdit from "../views/orders/OrderEdit";
-import OrdersAll from "../views/orders/OrdersAll";
 import * as auth from '../services/AuthService';
 
 Vue.use(VueRouter)
@@ -40,7 +39,7 @@ const routes = [
   {
     path: '/order',
     name: 'orders-all',
-    component: OrdersAll,
+    component: () => import(/* webpackChunkName: "order" */ '../views/orders/OrdersAll.vue'),
     beforeEnter: (toolbar,from,next)=>{
       if(auth.isLoggedIn){
         next();

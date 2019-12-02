@@ -1,7 +1,7 @@
 import {http} from './HttpService'
 
 export function getAllOrders() {
-    return http().get('/order');
+    return http().get('/order/all');
 }
 
 export function getOrderById(id) {
