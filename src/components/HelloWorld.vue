@@ -9,6 +9,7 @@
       <p v-if="$store.state.isLoggedIn" class="ml-4 mr-4">Click below to begin managing your restaurant. </p>
       <p v-if="!$store.state.isLoggedIn" class="ml-4 mr-4">Login or register to begin using this application. </p>
       <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/order">View Orders</router-link>
+      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/bill">View Bills</router-link>
       <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/order/new">Place an Order</router-link>
       <router-link v-if="!$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/login">Login</router-link>
       <router-link v-if="!$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/register">Register</router-link>

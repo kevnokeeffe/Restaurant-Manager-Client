@@ -4,6 +4,14 @@
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
                 <label for="inputStarter">Starter</label>
+                <input id="toggle-soup" type="checkbox" data-toggle="toggle" text="Soup">
+                <input id="toggle-wings" type="checkbox" data-toggle="toggle">
+                <input id="toggle-cali" type="checkbox" data-toggle="toggle">
+                <div class="btn-group" role="group" aria-label="Basic example" required autofocus>
+                    <button type="button" class="btn btn-secondary">Chicken Wings</button>
+                    <button type="button" class="btn btn-secondary">Calamari</button>
+                    <button type="button" class="btn btn-secondary">Soup</button>
+                </div>
                 <input v-model="starter" type="text" class="form-control" id="inputStarter" aria-describedby="starterHelp" placeholder="Enter starter" required autofocus>
             </div>
             <div class="form-group">

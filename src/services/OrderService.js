@@ -10,7 +10,7 @@ export function getOrderById(id) {
 }
 
 export function updateOrder(id,order) {
-    return http().put(`/order/${id}`,order,{ headers: {'Content-type': 'application/json'} });
+    return http().put(`/order/update/${id}`,order,{ headers: {'Content-type': 'application/json'} });
 }
 
 export function createOrder(order) {

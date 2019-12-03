@@ -49,7 +49,7 @@ export function getName() {
         return null;
     }
     try {
-        return token.user.fName;
+        return token.fName;
     }catch(error){console.log('fName err')}
 }
 

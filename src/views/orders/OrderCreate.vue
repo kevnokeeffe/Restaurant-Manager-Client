@@ -3,20 +3,41 @@
         <h1>Create Order</h1>
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
-                <label for="inputStarter">Starter</label>
-                <input v-model="starter" type="text" class="form-control" id="inputStarter" aria-describedby="starterHelp" placeholder="Enter starter" required autofocus>
+                <label class="form-label">Choose Starter</label>
+                <select id="starter" name="starter" class="form-control" style="color: black " placeholder="emm food :)" type="text" v-model="starter">
+                    <option style="color: black" value="null" selected disabled hidden>Choose Starter</option>
+                    <option style="color: black" value="Chicken Wings">Chicken Wings</option>
+                    <option style="color: black" value="Soup">Soup</option>
+                    <option style="color: black" value="Garlic Mushrooms">Garlic Mushrooms</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="inputMain">Main</label>
-                <input v-model="main" type="text" class="form-control" id="inputMain" aria-describedby="mainHelp" placeholder="Enter main" required autofocus>
+                <label class="form-label">Choose a Main Course</label>
+                <select id="main" name="main" class="form-control" style="color: black " type="text" v-model="main">
+                    <option style="color: black" value="null" selected disabled hidden>Choose Main</option>
+                    <option style="color: black" value="Beef">Beef</option>
+                    <option style="color: black" value="Chicken">Chicken</option>
+                    <option style="color: black" value="Gourmet Burger">Gourmet Burger</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="inputDessert">Dessert</label>
-                <input v-model="desert" type="text" class="form-control" id="inputDessert" aria-describedby="dessertHelp" placeholder="Enter dessert" required autofocus>
+                <label class="form-label">Choose a Dessert</label>
+                <select id="dessert" name="dessert" class="form-control" style="color: black " type="text" v-model="desert">
+                    <option style="color: black" value="null" selected disabled hidden>Choose Dessert</option>
+                    <option style="color: black" value="Brownie">Brownie</option>
+                    <option style="color: black" value="Ice Cream">Ice Cream</option>
+                    <option style="color: black" value="Cheese Cake">Cheese Cake</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="inputDrink">Drink</label>
-                <input v-model="drink" type="text" class="form-control" id="inputDrink" aria-describedby="drinkHelp" placeholder="Enter drink" required autofocus>
+                <label class="form-label">Choose a Dessert</label>
+                <select id="drink" name="drink" class="form-control" style="color: black " type="text" v-model="drink">
+                    <option style="color: black" value="null" selected disabled hidden>Choose Drink</option>
+                    <option style="color: black" value="Coke">Coke</option>
+                    <option style="color: black" value="Wine">Wine</option>
+                    <option style="color: black" value="Beer">Beer</option>
+                    <option style="color: black" value="Water">Water</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="inputMessage">Message</label>
@@ -67,7 +88,8 @@
                 ]);
                 await this.$router.push({path:'/order'});
 
-            }
+            },
+
         }
     }
 </script>

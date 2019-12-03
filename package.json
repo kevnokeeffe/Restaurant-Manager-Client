@@ -15,7 +15,9 @@
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.3.2",
+    "cypress": "^3.7.0",
     "font-awesome": "^4.7.0",
+    "httpserver": "^0.3.0",
     "jquery": "^3.4.1",
     "jsonwebtoken": "^8.5.1",
     "popper.js": "^1.16.0",
@@ -36,6 +38,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "vue-loader": "^15.7.2",
+    "vue-style-loader": "^4.1.2",
     "vue-tables-2": "^1.5.46",
     "vue-template-compiler": "^2.6.10"
   }
