@@ -57,7 +57,7 @@
     import Vue from 'vue'
     import VueForm from 'vueform'
     import Vuelidate from 'vuelidate'
-
+    import { minLength } from 'vuelidate/lib/validators'
 
     Vue.use(VueForm, {
         inputClasses: {
@@ -82,7 +82,11 @@
                 submitStatus: null
             }
         },
-
+        validations: {
+            message: {
+                minLength: minLength(0)
+            },
+        },
         methods: {
             submit () {
                 console.log('submit!')
