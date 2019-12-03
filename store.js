@@ -16,6 +16,7 @@ const store = new Vuex.Store({
     authenticate(state){
       state.isLoggedIn = auth.isLoggedIn();
       if (state.isLoggedIn){
+        state.lName = auth.getLastName();
         state.fName = auth.getName();
         state.email = auth.getEmail();
         state.userId = auth.getUserId();
@@ -23,6 +24,7 @@ const store = new Vuex.Store({
         state.userId = null;
         state.email = null;
         state.fName = null;
+        state.lName = null;
       }
     }
   },

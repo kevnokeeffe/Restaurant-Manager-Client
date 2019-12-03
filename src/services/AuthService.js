@@ -53,6 +53,16 @@ export function getName() {
     }catch(error){console.log('fName err')}
 }
 
+export function getLastName() {
+    const token = decodeToken();
+    if(!token) {
+        return null;
+    }
+    try {
+        return token.lName;
+    }catch(error){console.log('fName err')}
+}
+
 export function getUserId(){
     const token = decodeToken();
     if(!token) {
