@@ -4,7 +4,7 @@
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
                 <label class="form-label">Choose Starter</label>
-                <select id="starter" name="starter" class="form-control" style="color: black " placeholder="emm food :)" type="text" v-model="starter">
+                <select id="starter" name="starter" class="form-control" style="color: black" type="text" v-model="starter">
                     <option style="color: black" value="null" selected disabled hidden>Choose Starter</option>
                     <option style="color: black" value="Chicken Wings">Chicken Wings</option>
                     <option style="color: black" value="Soup">Soup</option>
