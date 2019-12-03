@@ -57,7 +57,7 @@
     import Vue from 'vue'
     import VueForm from 'vueform'
     import Vuelidate from 'vuelidate'
-    import { minLength } from 'vuelidate/lib/validators'
+
 
     Vue.use(VueForm, {
         inputClasses: {
@@ -78,17 +78,11 @@
                 main:this.main,
                 desert:this.desert,
                 drink:this.drink,
-                payed:this.payed,
-                price:this.price,
                 message:this.message,
                 submitStatus: null
             }
         },
-        validations: {
-            message: {
-                minLength: minLength(5)
-            },
-        },
+
         methods: {
             submit () {
                 console.log('submit!')
@@ -104,17 +98,14 @@
                             main:this.main,
                             desert:this.desert,
                             drink:this.drink,
-                            payed:this.payed,
-                            price:this.price,
                             message:this.message,
                         }
                         this.order = order
-                        console.log('Submitting in OrderForm : ' +
-                            JSON.stringify(this.order, null, 5))
                         this.$emit('order-is-created-updated', this.order)
                     }, 500)
+
                 }
-                //next(this.$router.push({path:'/order'}))
+
             }
         }
     }

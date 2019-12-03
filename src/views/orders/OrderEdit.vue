@@ -31,24 +31,22 @@
                         this.temp = response.data
                         this.order = this.temp[0]
                         this.childDataLoaded = true
-                        console.log('Getting Order in Edit: ' + JSON.stringify(this.order, null, 5))
                     })
                     .catch(error => {
                         this.errors.push(error)
                         console.log(error)
                     })
             },
-            updateOrder: function (order) {
-                console.log('Before PUT ' + JSON.stringify(order, null, 5))
-                orderService.putOrder(this.$router.params, order)
+            updateOrder: function (order,next) {
+               orderService.putOrder(this.$router.params, order)
                     .then(response => {
                         console.log(response)
-                        console.log('AFTER PUT ' + JSON.stringify(order, null, 5))
-                    })
+                     })
                     .catch(error => {
                         this.errors.push(error)
                         console.log(error)
                     })
+                next(this.$router.push({path:'/order'}))
             }
         }
     }
