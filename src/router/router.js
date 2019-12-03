@@ -66,6 +66,18 @@ const routes = [
     }
   },
   {
+    path: '/order/edit',
+    name: 'order-edit',
+    component: () => import(/* webpackChunkName: "order/edit" */ '../views/orders/OrderEdit.vue'),
+    beforeEnter: (toolbar,from,next)=>{
+      if(auth.isLoggedIn){
+        next();
+      }else{
+        next('/');
+      }
+    }
+  },
+  {
     path: '/order/:id/',
     name: 'edit',
     component: OrderEdit,

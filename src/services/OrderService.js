@@ -5,12 +5,12 @@ export function getAllOrders() {
     return http().get('/order/all');
 }
 
-export function getOrderById(id) {
-    return http().get(`/order/${id}`);
+export function fetchOrder(id) {
+    return http().get(`/order/findOne/${id}`);
 }
 
-export function updateOrder(id,order) {
-    return http().put(`/order/update/${id}`,order,{ headers: {'Content-type': 'application/json'} });
+export function putOrder(id,order) {
+    return http().put(`/order/update/${id}`,order);
 }
 
 export function createOrder(order) {

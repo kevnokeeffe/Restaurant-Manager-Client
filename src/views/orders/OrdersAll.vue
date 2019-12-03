@@ -5,11 +5,15 @@
           <div class="card-body">
             <v-client-table :columns="columns" :data="orders" :options="options">
               <a slot="remove" slot-scope="props" class="btn btn-outline-danger align-items-center btn-sm" @click="deleteOrder(props.row._id)">Delete</a>
-              <a slot="edit" slot-scope="props" class="btn btn-outline-warning btn-sm" @click="updateOrder(props.row._id)">Edit</a>
+              <a slot="edit" slot-scope="props" class="btn btn-outline-warning btn-sm" @click="editOrder(props.row._id)">Edit</a>
+<!--              <router-link  slot="edit" slot-scope="props" type="button" tag="button" class="card-link btn btn-outline-primary" @click="editOrder(props.row._id)" ></router-link>-->
             </v-client-table>
       <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/order/new">Place an Order</router-link>
     </div>
       </div>
+    <div v-if="orders && orders.length === 0" class="mt-2">
+      <div class="alert alert-info">No orders found! Place an Order :)</div>
+    </div>
   </div>
 </template>
 
@@ -63,6 +67,10 @@ export default {
                 this.errors.push(error)
                 console.log(error)
               })
+    },
+    editOrder: function (id) {
+      this.$router.params = id
+      this.$router.push('order/edit')
     },
 
     pay: function(id){

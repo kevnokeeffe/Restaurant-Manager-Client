@@ -1,11 +1,10 @@
 <template>
     <div>
-        <h1>Create Order</h1>
-        <form class="custom-form" v-on:submit.prevent="onSubmit">
+        <form class="custom-form" v-on:submit.prevent="submit">
             <div class="form-group">
                 <label class="form-label">Choose Starter</label>
                 <select id="starter" name="starter" class="form-control" style="color: black" type="text" v-model="starter">
-                    <option style="color: black" value="null" selected disabled hidden>Choose Starter</option>
+                    <option style="color: black" value="null">Choose Starter</option>
                     <option style="color: black" value="Chicken Wings">Chicken Wings</option>
                     <option style="color: black" value="Soup">Soup</option>
                     <option style="color: black" value="Garlic Mushrooms">Garlic Mushrooms</option>
@@ -14,7 +13,7 @@
             <div class="form-group">
                 <label class="form-label">Choose a Main Course</label>
                 <select id="main" name="main" class="form-control" style="color: black " type="text" v-model="main">
-                    <option style="color: black" value="null" selected disabled hidden>Choose Main</option>
+                    <option style="color: black" value="null">Choose Main</option>
                     <option style="color: black" value="Beef">Beef</option>
                     <option style="color: black" value="Chicken">Chicken</option>
                     <option style="color: black" value="Gourmet Burger">Gourmet Burger</option>
@@ -23,7 +22,7 @@
             <div class="form-group">
                 <label class="form-label">Choose a Dessert</label>
                 <select id="dessert" name="dessert" class="form-control" style="color: black " type="text" v-model="desert">
-                    <option style="color: black" value="null" selected disabled hidden>Choose Dessert</option>
+                    <option style="color: black" value="null">Choose Dessert</option>
                     <option style="color: black" value="Brownie">Brownie</option>
                     <option style="color: black" value="Ice Cream">Ice Cream</option>
                     <option style="color: black" value="Cheese Cake">Cheese Cake</option>
@@ -32,7 +31,7 @@
             <div class="form-group">
                 <label class="form-label">Choose a Dessert</label>
                 <select id="drink" name="drink" class="form-control" style="color: black " type="text" v-model="drink">
-                    <option style="color: black" value="null" selected disabled hidden>Choose Drink</option>
+                    <option style="color: black" value="null">Choose Drink</option>
                     <option style="color: black" value="Coke">Coke</option>
                     <option style="color: black" value="Wine">Wine</option>
                     <option style="color: black" value="Beer">Beer</option>
@@ -47,49 +46,76 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </div>
-
+            <p class="typo__p" v-if="submitStatus === 'OK'">Order Processed!</p>
+            <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>
+            <p class="typo__p" v-if="submitStatus === 'PENDING'">Processing...</p>
         </form>
     </div>
 </template>
 
 <script>
+    import Vue from 'vue'
+    import VueForm from 'vueform'
+    import Vuelidate from 'vuelidate'
+    import { minLength } from 'vuelidate/lib/validators'
 
-    import * as orderService from "../../services/OrderService";
+    Vue.use(VueForm, {
+        inputClasses: {
+            valid: 'form-control-success',
+            invalid: 'form-control-danger'
+        }
+    })
+
+    Vue.use(Vuelidate)
+
     export default {
-        name: "order-create",
-        props: ['orderBtnTitle'],
-        data: function(){
-            return{
-                starter:'',
-                main:'',
-                desert:'',
-                drink:'',
-                payed: false,
-                price: 25.50,
-                message:''
-
+        name: 'FormData',
+        props: ['orderBtnTitle', 'order'],
+        data () {
+            return {
+                messageTitle: ' Order ',
+                starter:this.starter,
+                main:this.main,
+                desert:this.desert,
+                drink:this.drink,
+                payed:this.payed,
+                price:this.price,
+                message:this.message,
+                submitStatus: null
             }
         },
-        methods:{
-            onSubmit: async function(event){
-                event.preventDefault();
-                const newOrder = {
-                    starter:this.starter,
-                    main:this.main,
-                    desert:this.desert,
-                    drink:this.drink,
-                    payed:this.payed,
-                    price:this.price,
-                    message:this.message
-                };
-                const orderPlace = orderService.createOrder(newOrder);
-                await Promise.all([
-                    orderPlace,
-                ]);
-                await this.$router.push({path:'/order'});
-
+        validations: {
+            message: {
+                minLength: minLength(5)
             },
-
+        },
+        methods: {
+            submit () {
+                console.log('submit!')
+                this.$v.$touch()
+                if (this.$v.$invalid) {
+                    this.submitStatus = 'ERROR'
+                } else {
+                    this.submitStatus = 'PENDING'
+                    setTimeout(() => {
+                        this.submitStatus = 'OK'
+                        let order = {
+                            starter:this.starter,
+                            main:this.main,
+                            desert:this.desert,
+                            drink:this.drink,
+                            payed:this.payed,
+                            price:this.price,
+                            message:this.message,
+                        }
+                        this.order = order
+                        console.log('Submitting in OrderForm : ' +
+                            JSON.stringify(this.order, null, 5))
+                        this.$emit('order-is-created-updated', this.order)
+                    }, 500)
+                }
+                //next(this.$router.push({path:'/order'}))
+            }
         }
     }
 </script>

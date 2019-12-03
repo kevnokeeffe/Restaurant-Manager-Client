@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     isLoggedIn: false,
-    apiUrl: 'https://restaurant-manager-prod-app.herokuapp.com/',
+    apiUrl: 'http://localhost:3000/',
     fName: null,
     email: null,
     userId: null
