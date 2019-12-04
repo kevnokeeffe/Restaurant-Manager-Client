@@ -1,5 +1,7 @@
+/* eslint-disable */
 /// <reference types="Cypress" />
 
+// eslint-disable-next-line no-undef
 context('Actions', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/actions')
@@ -55,6 +57,7 @@ context('Actions', () => {
       .should('have.value', '')
   })
 
+  // eslint-disable-next-line no-undef
   it('.submit() - submit a form', () => {
     // https://on.cypress.io/submit
     cy.get('.action-form')
