@@ -1,5 +1,10 @@
 {
   "baseUrl": "http://localhost:8080/",
   "requestTimeout": 8999,
-  "projectId": "78ti8g"
+  "projectId": "apx4gn",
+  "video": true,
+  "screenshotsFolder": "cypress/videos",
+  "env": {
+    "username": "admin"
+  }
 }
