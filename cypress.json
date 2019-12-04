@@ -1,1 +1,5 @@
-{}
+{
+  "baseUrl": "http://localhost:8080/",
+  "requestTimeout": 8999,
+  "projectId": "78ti8g"
+}
