@@ -4,7 +4,7 @@
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
                 <label for="inputFirstName">First Name</label>
-                <input v-model="fName" type="text" class="form-control" id="inputFirstName" aria-describedby="emailHelp" placeholder="Enter first name" required autofocus >
+                <input v-model="fName" type="text" class="form-control" id="inputFirstName" aria-describedby="emailHelp" placeholder="Enter first name" pattern="^[a-zA-Z0-9]+$" required autofocus >
             </div>
             <div class="form-group">
                 <label for="inputLastName">Last Name</label>
