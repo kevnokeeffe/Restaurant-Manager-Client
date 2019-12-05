@@ -29,12 +29,12 @@ Build_&_Testing:
   stage: build
   before_script:
    - npm run clean
-   - npm run compile:all
    - npm install cypress --save
    - npm install start-server-and-test --save
    - npm install http-server --save
    - npm install babel-polyfill --save
   script:
+    - npm run compile:all
     - npm run test
 
 Deployment:
@@ -46,8 +46,9 @@ Deployment:
   before_script:
     - npm install
     - npm install surge
+    - npm install ncp
 
   script:
     - node_modules/.bin/buildProduction --outroot=dist index.html
-    - cp CNAME dist/
+    - ncp CNAME dist/
     - node_modules/.bin/surge dist
