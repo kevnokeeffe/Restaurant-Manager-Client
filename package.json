@@ -32,6 +32,7 @@
     "jquery": "^3.4.1",
     "jsonwebtoken": "^8.5.1",
     "popper.js": "^1.16.0",
+    "start-server-and-test": "^1.10.6",
     "vue": "^2.6.10",
     "vue-fontawesome": "0.0.2",
     "vue-fontawesome-icon": "^1.1.0",

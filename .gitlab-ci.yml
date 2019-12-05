@@ -17,10 +17,10 @@ install_dependencies:
   stage: install
   script:
     - npm install
-    - npm install http-server --save-dev -g
-    - npm install cypress --save-dev -g
-    - npm install start-server-and-test --save-dev -g
-    - npm install --save babel-polyfill --save-dev -g
+    - npm install http-server --save
+    - npm install cypress --save
+    - npm install start-server-and-test --save
+    - npm install --save babel-polyfill --save
   artifacts:
     paths:
       - node_modules/
