@@ -10,7 +10,7 @@ variables:
 # Pipeline:
 stages:
   - install
-  - test
+  - build
 # Jobs:
 
 install_dependencies:
@@ -19,13 +19,15 @@ install_dependencies:
     - npm install
     - npm install http-server --save-dev
     - npm install cypress --save-dev
+    - npm install start-server-and-test --save-dev
   artifacts:
     paths:
       - node_modules/
 
-testing:
-  stage: test
+Build_&_Testing:
+  stage: build
   before_script:
    - npm run clean
   script:
-   - npm run test
+    - npm run compile:all
+    - npm run test
