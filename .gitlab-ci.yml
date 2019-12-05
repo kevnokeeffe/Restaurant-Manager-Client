@@ -33,4 +33,4 @@ Build_&_Testing:
    - npm install http-server --save
    - npm install babel-polyfill --save
   script:
-    - npm run build
+    - npm run test
