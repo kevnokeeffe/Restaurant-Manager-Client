@@ -49,7 +49,7 @@ Deployment:
     - npm install ncp
 
   script:
-    - cp CNAME --out-dir ./dist
+    - copy CNAME --out-dir ./dist
     - node_modules/.bin/surge
 
 Master_Deployment:
