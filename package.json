@@ -15,7 +15,7 @@
     "lint": "vue-cli-service lint",
     "start": "npm-run-all serve",
     "cy:run": "npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230",
-    "test": "start-server-and-test start http://localhost:8080 cy:run",
+    "test": "start-server-and-test start http://localhost:8080 cy:run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
