@@ -28,6 +28,11 @@ Build_&_Testing:
   stage: build
   before_script:
    - npm run clean
+   - npm install http-server
+   - npm install cypress
+   - npm install start-server-and-test
   script:
     - npm run compile:all
     - npm run test
+    - npm run start:server
+    - npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230
