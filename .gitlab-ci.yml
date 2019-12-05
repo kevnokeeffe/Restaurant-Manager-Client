@@ -4,9 +4,6 @@ cache:
   paths:
     - node_modules/
 
-services:
-  - cypress
-
 variables:
   NODE_ENV: 'test'
 
@@ -21,7 +18,7 @@ install_dependencies:
   script:
     - npm install
     - npm install http-server
-    - npm install cypress
+    - npm install cypress --save-dev
   artifacts:
     paths:
       - node_modules/
