@@ -46,10 +46,9 @@ Deployment:
   before_script:
     - npm install
     - npm install surge
-    - npm install ncp
 
   script:
-    - cp CNAME dist/
+    - cp CNAME ./dist/
     - node_modules/.bin/surge
 
 Master_Deployment:

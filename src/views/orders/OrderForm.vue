@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label class="form-label">Choose Starter</label>
                 <select id="starter" name="starter" class="form-control" style="color: black" type="text" v-model="starter">
-                    <option style="color: black" value="null">Choose Starter</option>
+                    <option style="color: black" value="null" selected disabled hidden>Choose Starter</option>
                     <option style="color: black" value="Chicken Wings">Chicken Wings</option>
                     <option style="color: black" value="Soup">Soup</option>
                     <option style="color: black" value="Garlic Mushrooms">Garlic Mushrooms</option>
@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label class="form-label">Choose a Main Course</label>
                 <select id="main" name="main" class="form-control" style="color: black " type="text" v-model="main">
-                    <option style="color: black" value="null">Choose Main</option>
+                    <option style="color: black" value="null" selected disabled hidden>Choose Main</option>
                     <option style="color: black" value="Beef">Beef</option>
                     <option style="color: black" value="Chicken">Chicken</option>
                     <option style="color: black" value="Gourmet Burger">Gourmet Burger</option>
@@ -22,16 +22,16 @@
             <div class="form-group">
                 <label class="form-label">Choose a Dessert</label>
                 <select id="dessert" name="dessert" class="form-control" style="color: black " type="text" v-model="desert">
-                    <option style="color: black" value="null">Choose Dessert</option>
+                    <option style="color: black" value="null" selected disabled hidden>Choose Dessert</option>
                     <option style="color: black" value="Brownie">Brownie</option>
                     <option style="color: black" value="Ice Cream">Ice Cream</option>
                     <option style="color: black" value="Cheese Cake">Cheese Cake</option>
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label">Choose a Dessert</label>
+                <label class="form-label">Choose a Drink</label>
                 <select id="drink" name="drink" class="form-control" style="color: black " type="text" v-model="drink">
-                    <option style="color: black" value="null">Choose Drink</option>
+                    <option style="color: black" value="null" selected disabled hidden>Choose Drink</option>
                     <option style="color: black" value="Coke">Coke</option>
                     <option style="color: black" value="Wine">Wine</option>
                     <option style="color: black" value="Beer">Beer</option>
