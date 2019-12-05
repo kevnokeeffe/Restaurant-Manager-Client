@@ -18,7 +18,6 @@ install_dependencies:
   script:
     - npm install
     - npm install babel-polyfill --save
-    - npm install xvfb --save
   artifacts:
     paths:
       - node_modules/
@@ -31,5 +30,7 @@ Build_&_Testing:
    - npm install cypress --save
    - npm install start-server-and-test --save
    - npm install http-server --save
+   - npm install babel-polyfill --save
+   - npm install xvfb --save
   script:
    - npm test
