@@ -26,6 +26,6 @@ install_dependencies:
 testing:
   stage: test
   before_script:
-    npm run clean
+   - npm run clean
   script:
-    npm run test
+   - npm run test
