@@ -20,7 +20,8 @@ install_dependencies:
     - npm install http-server --save
     - npm install cypress --save
     - npm install start-server-and-test --save
-    - npm install --save babel-polyfill --save
+    - npm install babel-polyfill --save
+    - npm install xvfb --save
   artifacts:
     paths:
       - node_modules/
@@ -29,10 +30,7 @@ Build_&_Testing:
   stage: build
   before_script:
    - npm run clean
-   - npm install http-server
-   - npm install cypress
-   - npm install start-server-and-test
+   - npm run compile:all
    - npm run start:server
   script:
-    - npm run compile:all
-    - npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230
+   - npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230
