@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav id="nav" @blur="close" class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
+        <nav id="nav" @blur="close" class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark" >
             <router-link to="/" class="navbar-brand">
                 <img style="max-height:25px " alt="Vue logo" src="../assets/logo.png">
                 Restaurant Manager
@@ -38,7 +38,7 @@
                            <a class="nav-link" v-on:click.prevent="logout()" href="#" >Logout</a>
                     </li>
                     <li class="h4User">
-                            <a> Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User!'}} {{this.$store.state.lName}}</a>
+                            <a> Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User :)'}} {{this.$store.state.lName}}</a>
                     </li>
 
                 </ul>
