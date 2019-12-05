@@ -11,6 +11,8 @@ variables:
 stages:
   - install
   - build
+  - deploy
+
 # Jobs:
 
 install_dependencies:
@@ -34,3 +36,15 @@ Build_&_Testing:
    - npm install babel-polyfill --save
   script:
     - npm run test
+
+Deployment:
+  only:
+    - gitlab-ci
+    - develop
+    - master
+  stage: deploy
+  before_script:
+    - npm install surge
+
+  script:
+    - npm run ./dist/node_modules/.bin/surge

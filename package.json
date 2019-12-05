@@ -4,26 +4,18 @@
   "private": true,
   "scripts": {
     "open": "npx cypress open",
-
     "clean": "rimraf ./cypress/videos && rimraf ./dist && mkdir dist",
     "compile:copy": "ncp package.json ./dist/package.json && ncp cypress.json ./dist/cypress.json && ncp babel.config.js ./dist/babel.config.js && ncp store.js ./dist/store.js && ncp ./node_modules/ ./dist/node_modules && ncp ./src/ ./dist/src && ncp ./public/ ./dist/public && ncp ./cypress/ ./dist/cypress",
-    "compile:all": "npm-run-all compile:copy",
-
+    "complie:surge": "ncp CNAME ./dist/CNAME",
+    "compile:all": "npm-run-all compile:copy complie:surge",
     "serve": "cross-env NODE_ENV=dev vue-cli-service serve",
-
-    "prebuild": "npm-run-all clean test",
-    "build": "cross-env NODE_ENV=dev vue-cli-service build",
-    "postbuild": "npm-run-all build",
-
+    "prebuild": "npm-run-all clean compile:all",
+    "build": "npm run test",
+    "postbuild": "cross-env NODE_ENV=dev vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "npm-run-all serve",
     "cy:run": "npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230",
-    "test:run": "npx cypress run",
     "test": "start-server-and-test start http://localhost:8080 cy:run",
-
-
-    "start:server": "cd ./dist && http-server -p 8080 & wait-on http://localhost:8080",
-    "start:dev": "npm-run-all test & wait-on serve"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -40,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "popper.js": "^1.16.0",
     "start-server-and-test": "^1.10.6",
+    "surge": "^0.21.3",
     "vue": "^2.6.10",
     "vue-fontawesome": "0.0.2",
     "vue-fontawesome-icon": "^1.1.0",
