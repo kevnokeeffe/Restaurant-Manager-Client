@@ -49,4 +49,5 @@ Deployment:
     - npm install ncp
 
   script:
-    - node_modules/.bin/surge dist
+    - npm run ncp:cname
+    - node_modules/.bin/surge

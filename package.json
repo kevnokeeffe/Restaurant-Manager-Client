@@ -10,6 +10,7 @@
     "serve": "cross-env NODE_ENV=dev vue-cli-service serve",
     "prebuild": "npm-run-all clean compile:all",
     "build": "npm run test",
+    "ncp:cname": "ncp CNAME dist/CNAME",
     "postbuild": "cross-env NODE_ENV=dev vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "npm-run-all serve",
