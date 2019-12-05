@@ -23,8 +23,7 @@ install_dependencies:
     paths:
       - node_modules/
 
-
-test:
+testing:
   stage: test
   before-script:
     npm run clean
