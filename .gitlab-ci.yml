@@ -13,7 +13,7 @@ stages:
   - install
   - build
   - deploy
-  - production-deploy
+  - production_deploy
 
 # Jobs:
 
@@ -40,9 +40,8 @@ Build_&_Testing:
     - npm run test
 
 Deployment:
-  only:
-    - gitlab-ci
-    - develop
+  except:
+    - master
   stage: deploy
   before_script:
     - npm install
@@ -57,7 +56,7 @@ Master_Deployment:
   image: rambabusaravanan/firebase
   only:
     - master
-  stage: production-deploy
+  stage: production_deploy
   before_script:
     - npm install firebase-tools
     - npm install
