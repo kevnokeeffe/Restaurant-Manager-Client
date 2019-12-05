@@ -49,6 +49,4 @@ Deployment:
     - npm install ncp
 
   script:
-    - node_modules/.bin/buildProduction --outroot=dist index.html
-    - ncp CNAME dist/
     - node_modules/.bin/surge dist
