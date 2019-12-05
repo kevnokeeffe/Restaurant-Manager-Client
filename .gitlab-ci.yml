@@ -44,9 +44,7 @@ Deployment:
     - master
   stage: deploy
   before_script:
-    - npm install
     - npm install surge
-    - npm install ncp
 
   script:
     - npm run ncp:cname
