@@ -48,4 +48,6 @@ Deployment:
     - npm install surge
 
   script:
-    - node_modules/.bin/surge
+    - node_modules/.bin/buildProduction --outroot=dist index.html
+    - cp CNAME dist/
+    - node_modules/.bin/surge dist
