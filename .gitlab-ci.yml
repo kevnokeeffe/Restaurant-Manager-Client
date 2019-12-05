@@ -17,9 +17,10 @@ install_dependencies:
   stage: install
   script:
     - npm install
-    - npm install http-server --save-dev
-    - npm install cypress --save-dev
-    - npm install start-server-and-test --save-dev
+    - npm install http-server --save-dev -g
+    - npm install cypress --save-dev -g
+    - npm install start-server-and-test --save-dev -g
+    - npm install --save babel-polyfill --save-dev -g
   artifacts:
     paths:
       - node_modules/
@@ -34,5 +35,4 @@ Build_&_Testing:
    - npm run start:server
   script:
     - npm run compile:all
-    - npm run test
     - npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230
