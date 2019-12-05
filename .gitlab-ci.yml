@@ -48,7 +48,6 @@ Deployment:
     - npm install surge
 
   script:
-    - cp CNAME ./dist/
     - node_modules/.bin/surge
 
 Master_Deployment:
