@@ -46,7 +46,6 @@ Deployment:
   before_script:
     - npm install
     - npm install surge
-    -
 
   script:
-    - /dist/node_modules/.bin/surge
+    - node_modules/.bin/surge
