@@ -31,6 +31,7 @@ Build_&_Testing:
   before_script:
    - npm run clean
    - npm run compile:all
+   - npm install cypress --save
    - npm run start:server
   script:
    - npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230

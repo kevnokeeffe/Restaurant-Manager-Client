@@ -12,10 +12,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "npm-run-all serve",
-    "cy:run": "npx cypress run",
+    "cy:run": "npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230",
+    "test:run": "cd ./dist npx cypress run",
     "test": "start-server-and-test start http://localhost:8080 cy:run",
     "postbuild": "npm-run-all serve",
-    "start:server": "cd ./dist && httpserver -p 8080 & wait-on http://localhost:8080",
+    "start:server": "cd ./dist && http-server -p 8080 & wait-on http://localhost:8080",
     "start:dev": "npm-run-all test & wait-on serve"
   },
   "dependencies": {
