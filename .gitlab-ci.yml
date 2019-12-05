@@ -31,8 +31,8 @@ Build_&_Testing:
    - npm install http-server
    - npm install cypress
    - npm install start-server-and-test
+   - npm run start:server
   script:
     - npm run compile:all
     - npm run test
-    - npm run start:server
     - npx cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230
