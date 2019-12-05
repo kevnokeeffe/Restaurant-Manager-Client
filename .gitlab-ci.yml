@@ -41,11 +41,25 @@ Deployment:
   only:
     - gitlab-ci
     - develop
-    - master
   stage: deploy
   before_script:
+    - npm install
     - npm install surge
+    - npm install ncp
 
   script:
-    - npm run ncp:cname
-    - node_modules/.bin/surge
+    - ncp CNAME dist/CNAME
+    - node_modules/.bin/surge dist
+
+Master_Deployment:
+  only:
+    - master
+  stage: production
+  before_script:
+    - npm install
+    - npm install surge
+    - npm install ncp
+
+    script:
+      - ncp CNAME dist/
+      - node_modules/.bin/surge dist

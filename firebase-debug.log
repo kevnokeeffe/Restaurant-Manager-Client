@@ -1,0 +1,74 @@
+[debug] [2019-12-05T21:27:12.824Z] ----------------------------------------------------------------------
+[debug] [2019-12-05T21:27:12.829Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Kev\Documents\College Year 4\Web Storm\Restaurant-Client\rm-client\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-12-05T21:27:12.830Z] CLI Version:   7.9.0
+[debug] [2019-12-05T21:27:12.830Z] Platform:      win32
+[debug] [2019-12-05T21:27:12.830Z] Node Version:  v10.16.3
+[debug] [2019-12-05T21:27:12.833Z] Time:          Thu Dec 05 2019 21:27:12 GMT+0000 (Greenwich Mean Time)
+[debug] [2019-12-05T21:27:12.833Z] ----------------------------------------------------------------------
+[debug] [2019-12-05T21:27:12.833Z] 
+[debug] [2019-12-05T21:27:12.856Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-05T21:27:12.857Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Kev\Documents\College Year 4\Web Storm\Restaurant-Client\rm-client
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-12-05T21:27:46.207Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-05T21:27:46.208Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-05T21:27:46.383Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-05T21:27:46.445Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-12-05T21:27:46.947Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-05T21:31:17.466Z] ----------------------------------------------------------------------
+[debug] [2019-12-05T21:31:17.471Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Kev\Documents\College Year 4\Web Storm\Restaurant-Client\rm-client\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-12-05T21:31:17.471Z] CLI Version:   7.9.0
+[debug] [2019-12-05T21:31:17.471Z] Platform:      win32
+[debug] [2019-12-05T21:31:17.471Z] Node Version:  v10.16.3
+[debug] [2019-12-05T21:31:17.474Z] Time:          Thu Dec 05 2019 21:31:17 GMT+0000 (Greenwich Mean Time)
+[debug] [2019-12-05T21:31:17.474Z] ----------------------------------------------------------------------
+[debug] [2019-12-05T21:31:17.474Z] 
+[debug] [2019-12-05T21:31:17.494Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-05T21:31:17.495Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Kev\Documents\College Year 4\Web Storm\Restaurant-Client\rm-client
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-12-05T21:31:31.368Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-12-05T21:31:31.845Z] <<< HTTP RESPONSE 200
+[info] i  Using project restaurantmanagerclient (RestaurantManagerClient)
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
