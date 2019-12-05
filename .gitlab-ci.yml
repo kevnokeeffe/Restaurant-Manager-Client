@@ -44,7 +44,9 @@ Deployment:
     - master
   stage: deploy
   before_script:
+    - npm install
     - npm install surge
+    -
 
   script:
-    - npm run ./dist/node_modules/.bin/surge
+    - /dist/node_modules/.bin/surge
