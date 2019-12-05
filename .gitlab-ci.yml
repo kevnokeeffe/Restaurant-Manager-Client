@@ -3,6 +3,7 @@ image: node:latest
 cache:
   paths:
     - node_modules/
+  key: "$CI_BUILD_REPO"
 
 variables:
   NODE_ENV: 'test'
@@ -12,6 +13,7 @@ stages:
   - install
   - build
   - deploy
+  - production-deploy
 
 # Jobs:
 
@@ -49,17 +51,16 @@ Deployment:
 
   script:
     - ncp CNAME dist/CNAME
-    - node_modules/.bin/surge dist
+    - node_modules/.bin/surge
 
 Master_Deployment:
+  image: rambabusaravanan/firebase
   only:
     - master
-  stage: production
+  stage: production-deploy
   before_script:
+    - npm install firebase-tools
     - npm install
-    - npm install surge
-    - npm install ncp
-
-    script:
-      - ncp CNAME dist/
-      - node_modules/.bin/surge dist
+  script:
+    - firebase use restaurantmanagerclient --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
