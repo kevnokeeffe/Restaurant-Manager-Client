@@ -20,7 +20,7 @@ install_dependencies:
   stage: install
   script:
     - npm install
-    - npm install httpserver
+    - npm install http-server
     - npm install cypress
   artifacts:
     paths:
