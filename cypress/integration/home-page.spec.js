@@ -60,7 +60,7 @@ describe("Home page", () => {
                                 .should("contain", "Login");
                             cy.get(".h4User")
                                 .eq(0)
-                                .should("contain", "Welcome, User :)");
+                                .should("contain", "Welcome, User.");
                             });
                 });
         });
