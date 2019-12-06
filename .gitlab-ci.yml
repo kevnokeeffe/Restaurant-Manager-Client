@@ -41,10 +41,6 @@ Build_&_Testing:
   script:
     - npm run build
     - npm run test
-  artifacts:
-    paths:
-      - dist/
-      - node_modules/
 
 Deployment:
   except:
@@ -55,11 +51,9 @@ Deployment:
     - npm install surge
     - npm install babel-polyfill
   script:
+    - npm run clean
     - npm run build
     - node_modules/.bin/surge dist
-  artifacts:
-    paths:
-      - dist/
 
 Master_Deployment:
   image: rambabusaravanan/firebase
