@@ -56,7 +56,7 @@ Deployment:
     - npm install babel-polyfill
   script:
     - npm run build
-    - dist/node_modules/.bin/surge
+    - node_modules/.bin/surge dist
   artifacts:
     paths:
       - dist/
