@@ -55,7 +55,6 @@ Master_Deployment:
   only:
     - master
   stage: production
-  enviroment: Production
   before_script:
     - npm install firebase-tools
     - npm install
