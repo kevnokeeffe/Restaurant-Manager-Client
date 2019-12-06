@@ -12,13 +12,13 @@ variables:
 # Pipeline:
 stages:
   - install
-  - build
-  - deploy
-  - production
+  - test
+  - build_deploy_develop
+  - build_deploy_production
 
 # Jobs:
 
-install_dependencies:
+Install_dependencies:
   stage: install
   script:
     - npm install
@@ -28,9 +28,9 @@ install_dependencies:
       - node_modules/
       - dist/
 
-Build_&_Testing:
+Testing:
   image: cypress/base:10
-  stage: build
+  stage: test
   before_script:
    - npm run clean
    - npm run clean:videos
@@ -39,13 +39,12 @@ Build_&_Testing:
    - npm install http-server --save
    - npm install babel-polyfill --save
   script:
-    - npm run build
     - npm run test
 
-Deployment:
+Develop_Deployment:
   except:
     - master
-  stage: deploy
+  stage: build_deploy_develop
   before_script:
     - npm install
     - npm install surge
@@ -55,16 +54,17 @@ Deployment:
     - npm run build
     - node_modules/.bin/surge dist
 
-Master_Deployment:
+Production_Deployment:
   image: rambabusaravanan/firebase
   only:
     - master
-  stage: production
+  stage: build_deploy_production
   before_script:
     - npm install firebase-tools
     - npm install
     - npm install babel-polyfill
   script:
+    - npm run clean
     - npm run build
     - firebase use --token $FIREBASE_DEPLOY_KEY restaurantmanagerclient
     - firebase deploy --token $FIREBASE_DEPLOY_KEY
