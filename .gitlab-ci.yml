@@ -73,7 +73,7 @@ Master_Deployment:
   script:
     - npm run build
     - firebase use --token $FIREBASE_DEPLOY_KEY restaurantmanagerclient
-    - firebase deploy dist
+    - firebase deploy -m dist --token $FIREBASE_DEPLOY_KEY
   artifacts:
     paths:
       - dist/
