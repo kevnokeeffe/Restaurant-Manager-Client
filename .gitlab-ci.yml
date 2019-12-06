@@ -52,6 +52,7 @@ Develop_Deployment:
   script:
     - npm run clean
     - npm run build
+    - cp CNAME dist/
     - node_modules/.bin/surge dist
 
 Production_Deployment:
