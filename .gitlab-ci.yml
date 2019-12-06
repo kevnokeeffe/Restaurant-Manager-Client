@@ -38,7 +38,12 @@ Build_&_Testing:
    - npm install http-server --save
    - npm install babel-polyfill --save
   script:
+    - npm run build
     - npm run test
+  artifacts:
+    paths:
+      - dist/
+      - node_modules/
 
 Deployment:
   except:
@@ -65,4 +70,7 @@ Master_Deployment:
   script:
     - npm run build
     - firebase use --token $FIREBASE_DEPLOY_KEY restaurantmanagerclient
-    - firebase deploy
+    - firebase deploy dist
+  artifacts:
+    paths:
+      - dist/
