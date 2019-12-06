@@ -13,7 +13,7 @@ stages:
   - install
   - build
   - deploy
-  - production_deploy
+  - production
 
 # Jobs:
 
@@ -54,10 +54,10 @@ Master_Deployment:
   image: rambabusaravanan/firebase
   only:
     - master
-  stage: production_deploy
+  stage: production
   before_script:
     - npm install firebase-tools
     - npm install
   script:
-    - firebase use restaurantmanagerclient --token $FIREBASE_TOKEN
-    - firebase deploy
+    - firebase use restaurantmanagerclient production
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_DEPLOY_KEY
