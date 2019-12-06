@@ -36,8 +36,7 @@ Build_&_Testing:
    - npm install http-server --save
    - npm install babel-polyfill --save
   script:
-    - npm run compile:all
-    - npm run test
+    - npm run build
 
 Deployment:
   except:
@@ -48,7 +47,7 @@ Deployment:
     - npm install surge
 
   script:
-    - node_modules/.bin/surge
+    - dist/node_modules/.bin/surge
 
 Master_Deployment:
   image: rambabusaravanan/firebase
