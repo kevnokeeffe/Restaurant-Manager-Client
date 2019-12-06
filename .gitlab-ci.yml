@@ -72,5 +72,5 @@ Master_Deployment:
     - npm install babel-polyfill
   script:
     - npm run build
-    - firebase use --token $FIREBASE_DEPLOY_KEY dist
-    - firebase deploy --token $FIREBASE_DEPLOY_KEY
+    - firebase use --token $FIREBASE_DEPLOY_KEY restaurantmanagerclient
+    - firebase deploy dist --token $FIREBASE_DEPLOY_KEY
