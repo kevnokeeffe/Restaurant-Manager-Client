@@ -38,7 +38,7 @@ Build_&_Testing:
    - npm install http-server --save
    - npm install babel-polyfill --save
   script:
-    - npm run compile:all
+    - npm run build
     - npm run test
 
 Deployment:
@@ -60,6 +60,7 @@ Master_Deployment:
   before_script:
     - npm install firebase-tools
     - npm install
+
   script:
     - npm run build
     - firebase use --token $FIREBASE_DEPLOY_KEY restaurantmanagerclient
