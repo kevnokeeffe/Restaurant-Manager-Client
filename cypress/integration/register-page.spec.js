@@ -8,4 +8,8 @@ describe("Register page", () => {
             cy.contains('a', 'Logout').click()
         }
     });
+    describe("Register page", () => {
+
+    });
+
 });
