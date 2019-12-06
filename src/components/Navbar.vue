@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav id="nav" @blur="close" class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark" >
+        <nav id="nav" @blur="close"  toggleable="md" class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark" >
             <router-link to="/" class="navbar-brand">
                 <img style="max-height:25px " alt="Vue logo" src="../assets/logo.png">
                 Restaurant Manager
