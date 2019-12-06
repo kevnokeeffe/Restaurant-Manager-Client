@@ -60,4 +60,4 @@ Master_Deployment:
     - npm install
   script:
     - firebase use restaurantmanagerclient --token $FIREBASE_TOKEN
-    - firebase deploy --only hosting -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
+    - firebase deploy
