@@ -3,6 +3,7 @@ image: node:latest
 cache:
   paths:
     - node_modules/
+    - dist/
   key: "$CI_BUILD_REPO"
 
 variables:
@@ -25,6 +26,7 @@ install_dependencies:
   artifacts:
     paths:
       - node_modules/
+      - dist/
 
 Build_&_Testing:
   image: cypress/base:10
@@ -59,5 +61,6 @@ Master_Deployment:
     - npm install firebase-tools
     - npm install
   script:
+    - npm run build
     - firebase use --token $FIREBASE_DEPLOY_KEY restaurantmanagerclient
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_DEPLOY_KEY
