@@ -21,7 +21,6 @@ describe("Logged in home page", () => {
                 cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
                 cy.get("input[data-test=password]").type("123456");
                 cy.get("button[type=submit]").click();
-                cy.wait(3000)
             });
         });
     });
@@ -88,18 +87,15 @@ describe("Logged in home page", () => {
         });
         it("Tests the jumbotrons buttons", () => {
             cy.get(".btn").contains('View Orders').click();
-            cy.wait(2000)
             //cy.request(url+"order/all",data.token)
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
             cy.get(".btn").contains('View Bills').click();
-            cy.wait(2000)
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
             cy.get(".btn").contains('Place an Order').click();
-            cy.wait(2000)
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
