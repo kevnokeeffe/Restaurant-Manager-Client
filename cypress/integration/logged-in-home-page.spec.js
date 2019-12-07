@@ -1,4 +1,4 @@
-
+const url = "https://restaurant-manager-prod-app.herokuapp.com/"
 
 describe("Logged in home page", () => {
     before(() => {
@@ -6,7 +6,7 @@ describe("Logged in home page", () => {
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
-            cy.contains('a', 'Logout').click()
+            cy.contains('nav-link', 'Logout').click()
         }
     });
 
@@ -89,6 +89,7 @@ describe("Logged in home page", () => {
         it("Tests the jumbotrons buttons", () => {
             cy.get(".btn").contains('View Orders').click();
             cy.wait(2000)
+            cy.request(url+"order/all",data.token)
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();

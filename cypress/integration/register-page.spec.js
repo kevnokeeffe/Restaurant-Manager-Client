@@ -6,7 +6,7 @@ describe("Register page", () => {
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
-            cy.contains('a', 'Logout').click()
+            cy.contains('nav-link', 'Logout').click()
         }
     });
     describe("Navigation bar", () => {
@@ -78,5 +78,4 @@ describe("Register page", () => {
                 });
         });
     });
-
 });
