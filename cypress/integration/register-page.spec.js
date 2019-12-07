@@ -1,8 +1,14 @@
 const apiURL = "https://restaurant-manager-prod-app.herokuapp.com/api/user/register"
+try{
+    cy.contains('nav-link', 'Logout').click()
+}catch{
+    console.log("logged out")
+}
 
 describe("Register page", () => {
     beforeEach(() => {
         cy.visit("http://localhost:8080/register");
+        cy.wait(2000)
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
@@ -16,6 +22,7 @@ describe("Register page", () => {
                 .eq(0)
                 .should("contain", "Register");
         });
+
         describe("Creates a user account",()=>{
         it("should create an account", () =>{
             cy.get("input[data-test=fName]").type("Brian");
