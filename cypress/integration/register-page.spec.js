@@ -6,14 +6,8 @@ try{
 }
 
 describe("Register page", () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit("http://localhost:8080/register");
-        cy.wait(2000)
-        if (cy.get(".h4User")
-            .should("contain", "Welcome, User.")) {
-        } else {
-            cy.contains('nav-link', 'Logout').click()
-        }
     });
 
     describe("Body of Page", () => {
