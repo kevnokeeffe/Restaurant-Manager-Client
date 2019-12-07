@@ -89,7 +89,7 @@ describe("Logged in home page", () => {
         it("Tests the jumbotrons buttons", () => {
             cy.get(".btn").contains('View Orders').click();
             cy.wait(2000)
-            cy.request(url+"order/all",data.token)
+            //cy.request(url+"order/all",data.token)
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();

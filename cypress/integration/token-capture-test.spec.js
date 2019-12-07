@@ -10,9 +10,8 @@ it('Logs in using UI', () => {
     cy.get("input[data-test=password]").type("123456");
     cy.get("button[type=submit]").click();
 
-    // confirm we have logged in successfully
+    // check login and capture token
     cy.location(()=>{
-
             const userString = window.localStorage.getItem('user')
             const user = JSON.parse(userString)
             expect(user).to.have.keys([

@@ -3,6 +3,7 @@ const apiURL = "https://restaurant-manager-prod-app.herokuapp.com/api/user/regis
 describe("Login page", () => {
     beforeEach(() => {
         cy.visit("http://localhost:8080/login");
+        cy.wait(2000);
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
