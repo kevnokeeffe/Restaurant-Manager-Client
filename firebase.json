@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "default",
+    "public": "restaurantmanagerclient",
     "ignore": [
       "firebase.json",
       "**/.*",
