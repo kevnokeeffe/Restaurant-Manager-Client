@@ -1,15 +1,15 @@
 <template>
     <div>
-    <h1>Login Route</h1>
+    <h1 class="h1">Login</h1>
     <form class="custom-form" v-on:submit.prevent="onSubmit">
         <div class="form-group">
             <label for="inputEmail">Email address</label>
-            <input v-model="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
+            <input data-test=email v-model="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
+            <input data-test=password v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-secondary">Submit</button>

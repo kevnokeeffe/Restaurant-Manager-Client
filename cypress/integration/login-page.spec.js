@@ -1,14 +1,15 @@
 const apiURL = "https://restaurant-manager-prod-app.herokuapp.com/api/user/register"
 
-describe("Register page", () => {
+describe("Login page", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:8080/register");
+        cy.visit("http://localhost:8080/login");
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
             cy.contains('a', 'Logout').click()
         }
     });
+
     describe("Navigation bar", () => {
         it("Shows a header", () => {
             cy.get(".navbar")
@@ -48,15 +49,13 @@ describe("Register page", () => {
         it("Shows a header", () => {
             cy.get(".h1")
                 .eq(0)
-                .should("contain", "Register");
+                .should("contain", "Login");
         });
-        describe("Creates a user account",()=>{
-        it("should create an account", () =>{
-            cy.get("input[data-test=fName]").type("Brian");
-            cy.get("input[data-test=lName]").type("Lanigan");
-            cy.get("input[data-test=email]").type("brianlanigan@gmail.com");
-            cy.get("input[data-test=password]").type("123456");
-            cy.get("button[type=submit]").click();
+        describe("Login",()=>{
+            it("should log in a user", () =>{
+                cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
+                cy.get("input[data-test=password]").type("123456");
+                cy.get("button[type=submit]").click();
             });
         });
     });
@@ -78,5 +77,6 @@ describe("Register page", () => {
                 });
         });
     });
+
 
 });

@@ -5,6 +5,7 @@
   "video": true,
   "screenshotsFolder": "cypress/videos",
   "env": {
-    "username": "admin"
+    "email": "kevokeeffe@gmail.com",
+    "password": "123456"
   }
 }

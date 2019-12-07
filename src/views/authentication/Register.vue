@@ -1,23 +1,23 @@
 <template>
     <div>
-        <h1>Register Route</h1>
+        <h1 class="h1">Register</h1>
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
                 <label for="inputFirstName">First Name</label>
-                <input v-model="fName" type="text" class="form-control" id="inputFirstName" aria-describedby="emailHelp" placeholder="Enter first name" pattern="^[a-zA-Z0-9]+$" required autofocus >
+                <input data-test="fName" v-model="fName" type="text" class="form-control" id="inputFirstName" aria-describedby="emailHelp" placeholder="Enter first name" pattern="^[a-zA-Z0-9]+$" required autofocus >
             </div>
             <div class="form-group">
                 <label for="inputLastName">Last Name</label>
-                <input v-model="lName" type="text" class="form-control" id="inputLastName" aria-describedby="emailHelp" placeholder="Enter last name" required autofocus >
+                <input data-test="lName" v-model="lName" type="text" class="form-control" id="inputLastName" aria-describedby="emailHelp" placeholder="Enter last name" required autofocus >
             </div>
             <div class="form-group">
                 <label for="inputEmail">Email address</label>
-                <input v-model="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
+                <input data-test="email" v-model="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
+                <input data-test="password" v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-secondary">Register</button>
