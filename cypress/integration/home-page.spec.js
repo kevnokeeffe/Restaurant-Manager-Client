@@ -3,7 +3,7 @@ describe("Home page", () => {
         cy.visit("http://localhost:8080");
                 if(cy.get(".h4User")
             .should("contain", "Welcome, User.")){
-        } else{cy.contains('nav-link', 'Logout').click()}
+        } else{cy.contains('.nav-item', 'Logout').click()}
     });
 
     describe("Jumbotron", () => {

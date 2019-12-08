@@ -1,12 +1,12 @@
 const url = "https://restaurant-manager-prod-app.herokuapp.com/"
-
+let accessKey;
 describe("Logged in home page", () => {
     before(() => {
         cy.visit("http://localhost:8080/login");
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
-            cy.contains('nav-link', 'Logout').click()
+            cy.contains('.nav-item', 'Logout').click()
         }
     });
 
@@ -22,6 +22,26 @@ describe("Logged in home page", () => {
                 cy.get("input[data-test=password]").type("123456");
                 cy.get("button[type=submit]").click();
                 cy.wait(3000)
+            });
+        });
+    });
+
+    describe("Token",()=> {
+        it('Captures the token', () => {
+            // check login and capture token
+            cy.location(() => {
+                const userString = window.localStorage.getItem('user')
+                const user = JSON.parse(userString)
+                expect(user).to.have.keys([
+                    'id',
+                    'email',
+                    'fName',
+                    'lName',
+                    'token',
+                ])
+                expect(user.token).to.be.a('string')
+                accessKey = user.token
+                done();
             });
         });
     });
@@ -88,7 +108,6 @@ describe("Logged in home page", () => {
         });
         it("Tests the jumbotrons buttons", () => {
             cy.get(".btn").contains('View Orders').click();
-            //cy.request(url+"order/all",data.token)
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();

@@ -6,7 +6,7 @@ describe("Login page", () => {
         if (cy.get(".h4User")
             .should("contain", "Welcome, User.")) {
         } else {
-            cy.contains('nav-link', 'Logout').click()
+            cy.contains('.nav-item', 'Logout').click()
         }
     });
 
