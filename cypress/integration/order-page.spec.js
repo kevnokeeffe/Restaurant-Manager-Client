@@ -25,6 +25,33 @@ describe("Login", ()=> {
         cy.contains('.nav-item', 'Order').click()
     });
 
+    it("Shows a header", () => {
+        cy.get(".vue-title")
+            .eq(0)
+            .should("contain", "List of Orders");
+    });
+
+    it("Shows the jumbotrons contents", () => {
+        cy.get(".card")
+            .eq(0)
+            .within(() => {
+                cy.get(".card-body")
+                    .eq(0)
+                    .within(() => {
+                        cy.get(".table")
+                            .eq(0)
+                            .within(() => {
+                                cy.get(".btn").should("contain", "Delete")
+                                    .eq(0);
+                                cy.get(".btn").should("contain", "Edit")
+                                    .eq(1);
+                            });
+                    });
+            });
+        cy.get(".btn").should("contain", "Place an Order")
+            .eq(0);
+    });
+
     });
 
 

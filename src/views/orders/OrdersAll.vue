@@ -3,7 +3,7 @@
     <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messageTitle}}</h3>
       <div class="card custom-bg-dark">
           <div class="card-body">
-            <v-client-table :columns="columns" :data="orders" :options="options">
+            <v-client-table class="table" :columns="columns" :data="orders" :options="options">
               <a slot="remove" slot-scope="props" class="btn btn-outline-danger align-items-center btn-sm" @click="deleteOrder(props.row._id)">Delete</a>
               <a slot="edit" slot-scope="props" class="btn btn-outline-warning btn-sm" @click="editOrder(props.row._id)">Edit</a>
 <!--              <router-link  slot="edit" slot-scope="props" type="button" tag="button" class="card-link btn btn-outline-primary" @click="editOrder(props.row._id)" ></router-link>-->
