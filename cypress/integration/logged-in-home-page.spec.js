@@ -26,26 +26,6 @@ describe("Logged in home page", () => {
         });
     });
 
-    describe("Token",()=> {
-        it('Captures the token', () => {
-            // check login and capture token
-            cy.location(() => {
-                const userString = window.localStorage.getItem('user')
-                const user = JSON.parse(userString)
-                expect(user).to.have.keys([
-                    'id',
-                    'email',
-                    'fName',
-                    'lName',
-                    'token',
-                ])
-                expect(user.token).to.be.a('string')
-                accessKey = user.token
-                done();
-            });
-        });
-    });
-
     describe("Navigation bar", () => {
         it("Shows a header", () => {
             cy.get(".navbar")
