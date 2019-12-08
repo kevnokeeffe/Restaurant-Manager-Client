@@ -12,7 +12,7 @@
             <input data-test=password v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button :disabled="buttonDisabled()" type="submit" class="btn btn-secondary">Submit</button>
         </div>
 
     </form>
@@ -41,7 +41,10 @@
                   loginPromise
                 ]);
                 await this.$router.push({path: '/'});
-            }
+            },
+            buttonDisabled: function () {
+                return (!this.email || !this.password )
+            },
         }
     }
 </script>

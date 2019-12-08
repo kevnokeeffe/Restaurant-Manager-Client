@@ -1,4 +1,5 @@
 const apiURL = "https://restaurant-manager-prod-app.herokuapp.com/api/user/register"
+const email = Math.floor((Math.random() * 100000000) + 100000000);
 try{
     cy.contains('nav-link', 'Logout').click()
 }catch{
@@ -19,9 +20,9 @@ describe("Register page", () => {
 
         describe("Creates a user account",()=>{
         it("should create an account", () =>{
-            cy.get("input[data-test=fName]").type("Brian");
-            cy.get("input[data-test=lName]").type("Lanigan");
-            cy.get("input[data-test=email]").type("brianlanigan@gmail.com");
+            cy.get("input[data-test=fName]").type("Test");
+            cy.get("input[data-test=lName]").type("User");
+            cy.get("input[data-test=email]").type(`${email}@gmail.com`);
             cy.get("input[data-test=password]").type("123456");
             cy.get("button[type=submit]").click();
             });

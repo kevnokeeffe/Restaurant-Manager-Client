@@ -12,15 +12,21 @@
             </div>
             <div class="form-group">
                 <label for="inputEmail">Email address</label>
-                <input data-test="email" v-model="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
+                <input data-test="email" v-model="email" type="email" class="form-control" :class="{ 'is-invalid': submitted && this.$v.email.$error }" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
+                <div v-if="submitted && this.$v.email" class="invalid-feedback">
+                    <span v-if="!this.$v.email.email">* Email is invalid!</span>
+                </div>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input data-test="password" v-model="password" type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
+                <input data-test="password" v-model="password" type="password" id="inputPassword" class="form-control" :class="{ 'is-invalid': submitted && this.$v.password.$error }" placeholder="Password" required autofocus>
+                <div v-if="submitted && this.$v.password.$error" class="invalid-feedback">
+                    <span v-if="!this.$v.password.minLength">* Password must be at least 6 characters long!</span>
+                </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-secondary">Register</button>
+                <button :disabled="buttonDisabled()" type="submit" class="btn btn-secondary">Register</button>
             </div>
 
         </form>
@@ -29,6 +35,7 @@
 
 <script>
     import * as auth from '../../services/AuthService';
+    import { email, minLength} from 'vuelidate/lib/validators'
     export default {
         name: "Register",
         data: function(){
@@ -56,8 +63,14 @@
                     loginPromise
                 ]);
                 await this.$router.push({path:'/'});
+            },
+            buttonDisabled: function () {
+                return (!this.email || !this.fName || !this.lName || !this.password )
             }
-
+        },
+        validations: {
+            email: { email },
+            password: { minLength: minLength(6) }
         }
     }
 </script>

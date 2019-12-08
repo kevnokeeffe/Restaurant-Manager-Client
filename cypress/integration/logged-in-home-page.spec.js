@@ -21,6 +21,7 @@ describe("Logged in home page", () => {
                 cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
                 cy.get("input[data-test=password]").type("123456");
                 cy.get("button[type=submit]").click();
+                cy.wait(3000)
             });
         });
     });

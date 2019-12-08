@@ -39,7 +39,7 @@ export function getEmail() {
         return null;
     }
     try {
-        return token.user.email;
+        return token.email;
     }catch(error){console.log('email err')}
 }
 
@@ -60,7 +60,7 @@ export function getLastName() {
     }
     try {
         return token.lName;
-    }catch(error){console.log('fName err')}
+    }catch(error){console.log('lName err')}
 }
 
 export function getUserId(){
@@ -69,7 +69,7 @@ export function getUserId(){
         return null;
     }
     try {
-        return token.user.id;
+        return token.id;
     }catch(error){console.log('id err')}
 }
 
