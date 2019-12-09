@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Create Order</h1>
+        <h1 class="vue-title">Create Order</h1>
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
                 <label class="form-label">Choose Starter</label>
@@ -30,7 +30,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label">Choose a Dessert</label>
+                <label class="form-label">Choose a Drink</label>
                 <select id="drink" name="drink" class="form-control" style="color: black " type="text" v-model="drink">
                     <option style="color: black" value="null" selected disabled hidden>Choose Drink</option>
                     <option style="color: black" value="Coke">Coke</option>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button id="submit" type="submit" class="btn btn-secondary">Submit</button>
             </div>
 
         </form>

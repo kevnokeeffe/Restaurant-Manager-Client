@@ -1,5 +1,19 @@
 import {http} from './HttpService'
 import id from "bootstrap-vue/esm/mixins/id";
+import jwt from "jsonwebtoken";
+
+
+export function getToken(){
+    return localStorage.getItem('token');
+}
+
+export function decodeToken(){
+    const token = getToken();
+    if(!token){
+        return null;
+    }
+    return jwt.decode(token);
+}
 
 export function getAllOrders() {
     return http().get('/order/all');
