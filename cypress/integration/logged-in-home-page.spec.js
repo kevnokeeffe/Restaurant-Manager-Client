@@ -72,17 +72,23 @@ describe("Logged in home page", () => {
                                 .eq(0);
                             cy.get(".line").should("contain", "The options below will help you to begin managing your restaurant.")
                                 .eq(0);
-                            cy.get(".btn").should("contain", "View Orders")
+                            cy.get(".btn").should("contain", "View All Orders")
                                 .eq(0);
-                            cy.get(".btn").should("contain", "View Bills")
+                            cy.get(".btn").should("contain", "View Your Orders")
                                 .eq(1);
-                            cy.get(".btn").should("contain", "Place an Order")
+                            cy.get(".btn").should("contain", "View Bills")
                                 .eq(2);
+                            cy.get(".btn").should("contain", "Place an Order")
+                                .eq(3);
                         });
                 });
         });
         it("Tests the jumbotrons buttons", () => {
-            cy.get(".btn").contains('View Orders').click();
+            cy.get(".btn").contains('View All Orders').click();
+            cy.get(".nav-item")
+                .eq(0)
+                .should("contain", "Home").click();
+            cy.get(".btn").contains('View Your Orders').click();
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();

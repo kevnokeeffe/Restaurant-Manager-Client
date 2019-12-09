@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input data-test="password" v-model="password" type="password" id="inputPassword" class="form-control" :class="{ 'is-invalid': submitted && this.$v.password.$error }" placeholder="Password" required autofocus>
+                <input data-test="password" v-model="password" type="password" id="inputPassword" class="form-control" :class="{ 'is-invalid': submitted && this.$v.password.$error }" placeholder="Password" aria-describedby="passwordHelp" required autofocus>
                 <div v-if="submitted && this.$v.password.$error" class="invalid-feedback">
                     <span v-if="!this.$v.password.minLength">* Password must be at least 6 characters long!</span>
                 </div>
@@ -35,7 +35,7 @@
 
 <script>
     import * as auth from '../../services/AuthService';
-    import { email, minLength} from 'vuelidate/lib/validators'
+    import { required, email, minLength} from 'vuelidate/lib/validators'
     export default {
         name: "Register",
         data: function(){
@@ -69,8 +69,8 @@
             }
         },
         validations: {
-            email: { email },
-            password: { minLength: minLength(6) }
+            email: { required,email },
+            password: { required,minLength: minLength(6) }
         }
     }
 </script>

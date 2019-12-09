@@ -24,11 +24,11 @@ export function fetchOrder(id) {
 }
 
 export function putOrder(id,order) {
-    return http().put(`/order/update/${id}`,order);
+    return http().put(`/order/update/${id}`,order,{ headers: {'Content-type': 'application/json'}});
 }
 
 export function createOrder(order) {
-    return http().post(`/order/add`,order);
+    return http().post(`/order/add`,order,{ headers: {'Content-type': 'application/json'}});
 }
 
 export function deleteOrder(id) {

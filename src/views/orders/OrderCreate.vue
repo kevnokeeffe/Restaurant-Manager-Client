@@ -60,6 +60,7 @@
         props: ['orderBtnTitle'],
         data: function(){
             return{
+                    userId: this.$store.state.userId,
                     starter:'',
                     main:'',
                     desert:'',
@@ -74,6 +75,7 @@
             onSubmit: async function(event){
                 event.preventDefault();
                 const newOrder = {
+                    userId:this.$store.state.userId,
                     starter:this.starter,
                     main:this.main,
                     desert:this.desert,

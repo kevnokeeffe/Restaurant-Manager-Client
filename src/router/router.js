@@ -54,6 +54,18 @@ const routes = [
     }
   },
   {
+    path: '/order/user',
+    name: 'orders-by-user',
+    component: () => import(/* webpackChunkName: "order" */ '../views/orders/OrderByUser.vue'),
+    beforeEnter: (toolbar,from,next)=>{
+      if(auth.isLoggedIn){
+        next();
+      }else{
+        next('/');
+      }
+    }
+  },
+  {
     path: '/order/new',
     name: 'orders-create',
     component: OrderCreate,

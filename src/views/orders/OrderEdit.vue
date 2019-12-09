@@ -1,7 +1,9 @@
 <template v-if="childDataLoaded">
     <div> <h1 class="vue-title" >Edit Order</h1>
+        <template v-if="childDataLoaded">
     <order-form :order="order" orderBtnTitle="Update Order"
                    @order-is-created-updated="updateOrder"></order-form>
+        </template>
     </div>
 </template>
 

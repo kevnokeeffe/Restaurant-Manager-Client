@@ -25,6 +25,18 @@ describe("Register page", () => {
             cy.get("input[data-test=email]").type(`${email}@gmail.com`);
             cy.get("input[data-test=password]").type("123456");
             cy.get("button[type=submit]").click();
+            cy.wait(500)
+            cy.contains('.nav-item', 'Logout').click()
+            });
+            it("should try create an account with an invalid email", () =>{
+                cy.visit("http://localhost:8080/register")
+                cy.get("input[data-test=fName]").type("Test");
+                cy.get("input[data-test=lName]").type("User");
+                cy.get("input[data-test=email]").type(`${email}`);
+                cy.get("input[data-test=password]").type("123");
+                cy.get("button[type=submit]").click();
+                cy.wait(500)
+                cy.visit("http://localhost:8080/");
             });
         });
     });

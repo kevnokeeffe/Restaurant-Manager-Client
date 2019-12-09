@@ -74,11 +74,12 @@
         data () {
             return {
                 messageTitle: ' Order ',
-                starter:this.starter,
-                main:this.main,
-                desert:this.desert,
-                drink:this.drink,
-                message:this.message,
+                userId:this.$store.state.userId,
+                starter:this.order.starter,
+                main:this.order.main,
+                desert:this.order.desert,
+                drink:this.order.drink,
+                message:this.order.message,
                 submitStatus: null
             }
         },
@@ -98,6 +99,7 @@
                     setTimeout(() => {
                         this.submitStatus = 'OK'
                         let order = {
+                            userId:this.$store.state.userId,
                             starter:this.starter,
                             main:this.main,
                             desert:this.desert,

@@ -1,8 +1,8 @@
 <template>
     <footer class="footer align-items-center align-content-center" id="custom-footer">
-        <span class="Ft mr-4 align-items-baseline">&copy; 2019 Kevin O'Keeffe</span>
-        <span class="Ft mr-4 align-items-center">Private</span>
-        <span class="Ft align-items-end">Terms of Service</span>
+        <span class="Ft m-1 align-items-baseline">&copy; 2019 Kevin O'Keeffe</span>
+        <span class="Ft m-1 align-items-center">Private</span>
+        <span class="Ft m-1 align-items-end">Terms of Service</span>
     </footer>
 </template>
 

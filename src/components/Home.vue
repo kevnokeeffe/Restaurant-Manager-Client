@@ -6,11 +6,12 @@
       <hr class="dot my-4">
       <p v-if="$store.state.isLoggedIn" class="line ml-4 mr-4">The options below will help you to begin managing your restaurant.</p>
       <p v-if="!$store.state.isLoggedIn" class="line ml-4 mr-4">Login or register to begin using this application.</p>
-      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/order">View Orders</router-link>
-      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/bill">View Bills</router-link>
-      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/order/new">Place an Order</router-link>
-      <router-link v-if="!$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/login">Login</router-link>
-      <router-link v-if="!$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4" to="/register">Register</router-link>
+      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4 mt-2" to="/order">View All Orders</router-link>
+      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4 mt-2" to="/order/user">View Your Orders</router-link>
+      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4 mt-2" to="/bill">View Bills</router-link>
+      <router-link v-if="$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4 mt-2" to="/order/new">Place an Order</router-link>
+      <router-link v-if="!$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4 mt-2" to="/login">Login</router-link>
+      <router-link v-if="!$store.state.isLoggedIn" class="btn btn-success btn-lg display:inline ml-4 mt-2" to="/register">Register</router-link>
     </div>
   </div>
 </template>
