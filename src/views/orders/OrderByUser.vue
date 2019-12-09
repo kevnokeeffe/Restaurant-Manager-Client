@@ -17,8 +17,70 @@
 </template>
 
 <script>
+    import * as orderService from "../../services/OrderService";
+    //import {Event} from 'vue-tables-2'
+    //let MyUserID = this.$store.state.userId
     export default {
-        name: "OrderByUser"
+        name: "OrderByUser",
+        data: function () {
+            return {
+                messageTitle: 'Your Orders',
+                orders: [],
+                currentOrderId: null,
+                errors: [],
+                columns: [ 'userId','_id', 'starter', 'main', 'desert', 'drink', 'price', 'message', 'remove', 'edit'],
+                options: {
+                    perPage: 10,
+                    filterable: [],
+                    // customFilters: [{
+                    //     name: 'filter',
+                    //     callback: function (row) {
+                    //         //query = MyUserID;
+                    //         return row.userId[1] == this.$store.state.userId;
+                    //     }
+                    // }],
+                    headings: {
+                        userId: 'User ID',
+                        _id: 'ID',
+                        starter: 'Starter',
+                        main: 'Main',
+                        desert: 'Dessert',
+                        drink: 'Drink',
+                        price: 'Price',
+                        remove: 'Remove',
+                        message: 'Message',
+                        edit: 'Edit'
+                    },
+                    sortable: [],
+                },
+                props: ['_id']
+            };
+        },
+        created () {
+            this.loadOrders()
+        },
+        methods: {
+            loadOrders: function () {
+                orderService.getAllOrders()
+                    .then(response => {
+                        // JSON responses are automatically parsed.
+                        let newOrders = response.data
+                        newOrders.forEach((item)=>{
+                            if(item.order.userId != this.$store.state.userId){
+                                this.item.order.splice()
+                            }
+
+                        })
+                        //Event.$emit('vue-tables.filter::filter', this.orders);
+                    })
+                    .catch(error => {
+                        this.errors.push(error)
+                    })
+            },
+            filterMyOrders: function (){
+            },
+        },
+
     }
 </script>
 
