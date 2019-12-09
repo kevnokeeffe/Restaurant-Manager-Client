@@ -1,6 +1,6 @@
 let accessKey;
 const apiURL = "https://restaurant-manager-prod-app.herokuapp.com/order"
-describe("Order", ()=>{
+describe("Orders", ()=>{
     it('Logs in using UI', () => {
         cy.visit('/login')
         // enter valid username and password
@@ -10,18 +10,18 @@ describe("Order", ()=>{
     });
 
 
-    describe("Orders",()=>{
-    it("Navigates to the orders page", ()=>{
+
+    it("navigates to the orders page", ()=>{
         cy.contains('.nav-item', 'Order').click()
     });
 
-    it("Shows a header", () => {
+    it("shows a header", () => {
         cy.get(".vue-title")
             .eq(0)
             .should("contain", "List of Orders");
     });
 
-    it("Shows the jumbotrons contents", () => {
+    it("shows the jumbotrons contents", () => {
         cy.get(".card")
             .eq(0)
             .within(() => {
@@ -41,7 +41,7 @@ describe("Order", ()=>{
         cy.get("#pao").should("contain", "Place an Order").click()
     });
 
-    it("Should add an order", ()=>{
+    it("should add an order", ()=>{
         cy.get(".vue-title")
             .eq(0)
             .should("contain", "Create Order");
@@ -69,7 +69,7 @@ describe("Order", ()=>{
             .contains("Message")
             .type("Extra Gravy");
     });
-        it("Place order", ()=> {
+        it("should place an order", ()=> {
             cy.wait(1000)
             cy.get(".btn").should("contain", "Submit").click()
             cy.contains('.nav-item', 'Logout').click()
@@ -77,4 +77,3 @@ describe("Order", ()=>{
     });
 
 
-});

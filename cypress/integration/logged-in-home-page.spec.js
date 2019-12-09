@@ -3,11 +3,6 @@ let accessKey;
 describe("Logged in home page", () => {
     before(() => {
         cy.visit("http://localhost:8080/login");
-        if (cy.get(".h4User")
-            .should("contain", "Welcome, User.")) {
-        } else {
-            cy.contains('.nav-item', 'Logout').click()
-        }
     });
 
     describe("Body of Page", () => {
