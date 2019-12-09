@@ -64,17 +64,18 @@
                 orderService.getAllOrders()
                     .then(response => {
                         // JSON responses are automatically parsed.
+
                         let newOrders = response.data
                         console.log("All orders: ",newOrders)
                         newOrders.forEach((item)=>{
                             console.log("found: ", item)
                             console.log("found user id: ", item.userId)
-                            if(item.data.userId != this.$store.state.userId){
-                                item.splice()
+                            if(item.userId == this.$store.state.userId){
+                                this.orders.push(item)
                             }
                         })
 
-                        //Event.$emit('vue-tables.filter::filter', this.orders);
+                        console.log("End output: ",this.orders)
                     })
                     .catch(error => {
                         this.errors.push(error)
