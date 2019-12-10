@@ -52,7 +52,7 @@ const routes = [
     path: '/order',
     name: 'orders-all',
     component: () => import(/* webpackChunkName: "order" */ '../views/orders/OrdersAll.vue'),
-    beforeEnter: (toolbar,from,next)=>{
+    beforeEnter: (to,from,next)=>{
       if(!auth.isLoggedIn){
         next();
       }else{
