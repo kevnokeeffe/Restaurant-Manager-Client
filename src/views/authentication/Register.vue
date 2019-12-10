@@ -24,11 +24,15 @@
                 <div v-if="submitted && this.$v.password.$error" class="invalid-feedback">
                     <span v-if="!this.$v.password.minLength">* Password must be at least 6 characters long!</span>
                 </div>
+                <small id="passwordHelp" class="form-text text-muted">Password must be at least 6 characters long.</small>
             </div>
             <div class="form-group">
                 <button :disabled="buttonDisabled()" type="submit" class="btn btn-secondary">Register</button>
             </div>
-
+            <p class="typo__p" v-if="submitStatus === 'OK'">User Created!</p>
+            <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Enter Valid Details.</p>
+            <p class="typo__p" v-if="submitStatus === 'PASSWORD'">Password must be at least 6 characters long.</p>
+            <p class="typo__p" v-if="submitStatus === 'PENDING'">Registering...</p>
         </form>
     </div>
 </template>
@@ -43,26 +47,35 @@
                 fName:'',
                 lName:'',
                 email:'',
-                password:''
+                password:'',
+                submitStatus: null
             }
         },
         methods:{
             onSubmit: async function(){
-            const user = {
-                fName:this.fName,
-                lName:this.lName,
-                email:this.email,
-                password:this.password
-                };
-                const registerPromise = auth.registerUser(user);
-                await Promise.all([
-                    registerPromise,
-                ]);
-                const loginPromise  = auth.login(user);
-                await Promise.all([
-                    loginPromise
-                ]);
-                await this.$router.push({path:'/'});
+                this.$v.$touch()
+                if (this.$v.$invalid) {
+                    this.submitStatus = 'ERROR'
+                } else {
+                    this.submitStatus = 'PENDING'
+                    try {
+                        const user = {
+                            fName: this.fName,
+                            lName: this.lName,
+                            email: this.email,
+                            password: this.password
+                        };
+                        const registerPromise = auth.registerUser(user);
+                        await Promise.all([
+                            registerPromise,
+                        ]);
+                        const loginPromise = auth.login(user);
+                        await Promise.all([
+                            loginPromise
+                        ]);
+                        await this.$router.push({path: '/'});
+                    }catch{if(this.password.length != this.password.minLength){this.submitStatus = 'PASSWORD'}else{this.submitStatus = 'ERROR'}}
+                }
             },
             buttonDisabled: function () {
                 return (!this.email || !this.fName || !this.lName || !this.password )
@@ -70,7 +83,7 @@
         },
         validations: {
             email: { required,email },
-            password: { required,minLength: minLength(6) }
+            password: { required,c: minLength(6) }
         }
     }
 </script>

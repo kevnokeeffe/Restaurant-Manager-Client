@@ -12,6 +12,7 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
+                    <div>
                     <li class="nav-item active">
                         <router-link to="/" exact>
                         <router-link to="/" class="nav-link" exact>
@@ -19,27 +20,50 @@
                         </router-link>
                         </router-link>
                     </li>
+                    </div>
+                    <div>
                     <li v-if="$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/order" class="nav-link" exact>
-                            Orders
+                            All Orders
                         </router-link>
                     </li>
+                    </div>
+                    <div>
+                    <li v-if="$store.state.isLoggedIn" class="nav-item">
+                        <router-link to="/order/user" class="nav-link" exact>
+                            Your Orders
+                        </router-link>
+                    </li>
+                    </div>
+                    <div>
                     <li v-if="!$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/register" class="nav-link" exact>
                             Register
                         </router-link>
                     </li>
+                    </div>
+                    <div>
                     <li v-if="!$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/login" class="nav-link" exact>
                             Login
                         </router-link>
                     </li>
+                    </div>
+                    <div>
                     <li v-if="$store.state.isLoggedIn" class="nav-item">
                            <a class="nav-link" v-on:click.prevent="logout()" href="#" >Logout</a>
                     </li>
-                    <li class="h4User">
-                            <a> Welcome, {{this.$store.state.fName ? this.$store.state.fName : 'User.'}} {{this.$store.state.lName}}</a>
+                    </div>
+                    <div>
+                    <li v-if="!$store.state.isLoggedIn" id="nli" class="h4User">
+                            <a> Welcome, User.</a>
                     </li>
+                    </div>
+                    <div>
+                        <li v-if="$store.state.isLoggedIn" id="yli" class="h4User">
+                            <a> Welcome, {{this.$store.state.fName}} {{this.$store.state.lName}}</a>
+                        </li>
+                    </div>
 
                 </ul>
             </div>
@@ -74,9 +98,16 @@ import * as auth from '../services/AuthService';
     nav.navbar{
         height: 4rem;
     }
-    li.h4User{
+    #yli{
 
-        margin-top: 2.5%;
+        margin-top: 4%;
+        margin-left: 20px;
+        font-family: sans-serif;
+        align-content: center;
+    }
+    #nli{
+
+        margin-top: 6.5%;
         margin-left: 20px;
         font-family: sans-serif;
     }

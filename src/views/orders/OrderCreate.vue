@@ -47,7 +47,6 @@
             <div class="form-group">
                 <button id="submit" type="submit" class="btn btn-secondary">Submit</button>
             </div>
-
         </form>
     </div>
 </template>

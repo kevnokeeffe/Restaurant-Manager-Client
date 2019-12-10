@@ -14,6 +14,7 @@
             <div class="alert alert-info">No orders found! Place an Order :)</div>
         </div>
     </div>
+
 </template>
 
 <script>

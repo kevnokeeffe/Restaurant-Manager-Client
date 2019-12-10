@@ -18,11 +18,14 @@
             >
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <h5 class="card-title">Bill ID:{{orders }}</h5>
+                        <h5 class="card-title">Bill ID:{{orders.userId }}</h5>
                     </div>
-                    <p class="card-text">
-                        {{ orders}}
-                    </p>
+
+<!--                    <h6 class="card-subtitle mb-2 text-muted">-->
+<!--                        Created by {{ orders.author.username }}-->
+<!--                    </h6>-->
+<!--                        {{ orders}}-->
+
                 </div>
             </div>
         </div>
