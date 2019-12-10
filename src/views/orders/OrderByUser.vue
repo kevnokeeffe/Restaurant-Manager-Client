@@ -83,6 +83,42 @@
             },
             filterMyOrders: function (){
             },
+            deleteOrder: function (id) {
+                this.$swal({
+                    title: 'Are you totaly sure?',
+                    text: 'You can\'t Undo this action',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'OK Delete it',
+                    cancelButtonText: 'Cancel',
+                    showCloseButton: true,
+                    showLoaderOnConfirm: true
+                }).then((result) => {
+                    console.log('SWAL Result : ' + result)
+                    if (result.value === true) {
+                        orderService.deleteOrder(id)
+                            .then(response => {
+                                // JSON responses are automatically parsed.
+                                this.message = response.data
+                                console.log(this.message)
+                                this.loadOrders()
+                                // Vue.nextTick(() => this.$refs.vuetable.refresh())
+                                this.$swal('Deleted', 'You successfully deleted this Order ' + JSON.stringify(response.data, null, 5), 'success')
+                            })
+                            .catch(error => {
+                                this.$swal('ERROR', 'Something went wrong trying to Delete ' + error, 'error')
+                                this.errors.push(error)
+                                console.log(error)
+                            })
+                    } else {
+                        this.$swal('Cancelled', 'Your Order has not been deleted!', 'info')
+                    }
+                })
+            },
+            editOrder: function (id) {
+                this.$router.params = id
+                this.$router.push('order/edit')
+            },
         },
 
     }
