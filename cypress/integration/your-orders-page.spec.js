@@ -1,11 +1,11 @@
-describe("Check contents",()=>{
-    it('logs in using UI', () => {
-        cy.visit('/login')
+describe("Testing user's orders page",()=>{
+    it('should login using the UI', () => {
+        cy.visit('/login');
         // enter valid username and password
         cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
         cy.get("input[data-test=password]").type("123456");
-        cy.get("button[type=submit]").click()
-        cy.contains('.nav-item', 'Your Orders').click()
+        cy.get("button[type=submit]").click();
+        cy.contains('.nav-item', "Kevin's Orders").click();
         cy.wait(1000)
     });
 
@@ -42,5 +42,8 @@ describe("Check contents",()=>{
             .find("td")
             .eq(5)
             .should("contain", 25.5); //its('length').should('be.lt',11)
+    });
+    it('should logout', () => {
+        cy.contains('.nav-item', 'Logout').click()
     });
 });

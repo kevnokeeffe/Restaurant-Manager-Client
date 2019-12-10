@@ -8,6 +8,7 @@
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             <div v-if="submitted && this.$v.email" class="invalid-feedback">
                 <span v-if="!this.$v.email.email">* Email is invalid!</span>
+                <v-alert :value="validationerror" color="error" v-html="error"></v-alert>
             </div>
         </div>
         <div class="form-group">
@@ -23,6 +24,7 @@
         <p class="typo__p" v-if="submitStatus === 'OK'">Logged in!</p>
         <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Enter Correct Details.</p>
         <p class="typo__p" v-if="submitStatus === 'PENDING'">Logging in...</p>
+        <p class="typo__p" v-if="submitStatus === 'PASSWORD'">Invalid Password</p>
     </form>
     </div>
 </template>
@@ -38,7 +40,8 @@
                 password: '',
                 submitted: false,
                 submitStatus: null,
-                errorMsg: null
+                errorMsg: null,
+                validationerror: false
             }
         },
         validations: {
@@ -59,13 +62,13 @@
                             email: this.email,
                             password: this.password
                         };
-                        const loginPromise = auth.login(user)
+                        const loginPromise = await auth.login(user);
                         await Promise.all([
                             loginPromise
                         ]);
                         await this.$router.push({path: '/'});
-                        this.submitStatus = 'OK'
-                    }catch{this.submitStatus = 'ERROR'}
+                        this.submitStatus = 'OK';
+                    }catch(error){this.submitStatus = 'ERROR'}
                 }
             },
             buttonDisabled: function () {

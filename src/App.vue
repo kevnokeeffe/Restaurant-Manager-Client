@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
+    <NavBar></NavBar>
     <div id="app-container">
     <router-view/>
     </div>
@@ -10,11 +10,11 @@
 
 
 <script>
-  import Navbar from "@/components/Navbar.vue";
+  import NavBar from "./components/Navbar";
   import Footer from "./components/Footer";
   export default {
     name: 'app',
-    components: {Footer, Navbar},
+    components: {Footer, NavBar},
     beforeCreate: function(){
       this.$store.dispatch('authenticate');
     }

@@ -31,7 +31,7 @@
                     <div>
                     <li v-if="$store.state.isLoggedIn" class="nav-item">
                         <router-link to="/order/user" class="nav-link" exact>
-                            Your Orders
+                            {{this.$store.state.fName}}'s Orders
                         </router-link>
                     </li>
                     </div>

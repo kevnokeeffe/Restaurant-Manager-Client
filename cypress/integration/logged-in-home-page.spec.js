@@ -45,7 +45,7 @@ describe("Testing the logged in home page", () => {
                                 .should("contain", "All Orders");
                             cy.get(".nav-item")
                                 .eq(2)
-                                .should("contain", "Your Orders");
+                                .should("contain", "Kevin's Orders");
                             cy.get(".nav-item")
                                 .eq(3)
                                 .should("contain", "Logout");
@@ -75,7 +75,7 @@ describe("Testing the logged in home page", () => {
                                 .eq(0);
                             cy.get(".btn").should("contain", "View All Orders")
                                 .eq(0);
-                            cy.get(".btn").should("contain", "View Your Orders")
+                            cy.get(".btn").should("contain", "View Kevin's Orders")
                                 .eq(1);
                             cy.get(".btn").should("contain", "Place an Order")
                                 .eq(2);
@@ -88,7 +88,7 @@ describe("Testing the logged in home page", () => {
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
-            cy.get(".btn").contains('View Your Orders').click();
+            cy.get(".btn").contains("View Kevin's Orders").click();
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
