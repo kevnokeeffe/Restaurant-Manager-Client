@@ -26,5 +26,6 @@ it('Captures the token', () => {
             accessKey = user.token
             done();
     });
+    cy.contains('.nav-item', 'Logout').click()
 });
 });

@@ -1,6 +1,6 @@
 <template>
   <div id="app1">
-    <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messageTitle}}</h3>
+    <h3 class="vue-title">{{messageTitle}}</h3>
       <div class="card custom-bg-dark">
           <div class="card-body">
             <v-client-table class="table" :columns="columns" :data="orders" :options="options">
@@ -124,7 +124,7 @@ export default {
     }
 
   #app1 {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 </style>

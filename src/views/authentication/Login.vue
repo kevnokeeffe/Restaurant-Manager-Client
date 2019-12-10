@@ -3,7 +3,7 @@
     <h1 class="h1">Login</h1>
     <form class="custom-form" v-on:submit.prevent="onSubmit">
         <div class="form-group">
-            <label for="inputEmail">Email address</label>
+            <label id="emailLabel" for="inputEmail">Email address</label>
             <input data-test=email v-model="email" type="email" class="form-control" :class="{ 'is-invalid': submitted && this.$v.email.$error }" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required autofocus >
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             <div v-if="submitted && this.$v.email" class="invalid-feedback">
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="inputPassword">Password</label>
+            <label id="passwordLabel" for="inputPassword">Password</label>
             <input data-test=password v-model="password" type="password" id="inputPassword" class="form-control" :class="{ 'is-invalid': submitted && this.$v.password.$error }" placeholder="Password" required>
             <div v-if="submitted && this.$v.password.$error" class="invalid-feedback">
                 <span v-if="!this.$v.password.minLength">* Password must be at least 6 characters long!</span>
@@ -82,5 +82,11 @@ form.custom-form{
     flex-direction:column;
     margin-left: auto;
     margin-right: auto;
+}
+.h1 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 45pt;
+    margin-bottom: 20px;
 }
 </style>

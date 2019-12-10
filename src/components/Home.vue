@@ -23,4 +23,7 @@
   .btn-success:hover{
     background-color: #3da978;
   }
+  .jumbotron{
+    margin-top: 30px;
+  }
 </style>

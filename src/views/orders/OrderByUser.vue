@@ -1,6 +1,6 @@
 <template>
     <div id="app1">
-        <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{this.$store.state.fName}}{{messageTitle}}</h3>
+        <h3 class="vue-title">{{this.$store.state.fName}}{{messageTitle}}</h3>
         <div class="card custom-bg-dark">
             <div class="card-body">
                 <v-client-table class="table" :columns="columns" :data="orders" :options="options">
@@ -89,5 +89,14 @@
 </script>
 
 <style scoped>
-
+    .vue-title {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 45pt;
+        margin-bottom: 10px;
+    }
+    #app1 {
+        width: 100%;
+        margin: 0 auto;
+    }
 </style>

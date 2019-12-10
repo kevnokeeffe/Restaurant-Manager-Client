@@ -19,8 +19,12 @@ describe("Order", ()=> {
             cy.contains('.nav-item', 'Orders').click()
             cy.wait(1000)
         });
-
-        it("displays first 10 orders only", () => {
+        it('should find a heading', () => {
+            cy.get(".vue-title")
+                .eq(0)
+                .should("contain", "List of Orders");
+        });
+        it("should displays first 10 orders only", () => {
             cy.get("tbody")
                 .find("tr")
                 .should("have.length", 10);
@@ -36,7 +40,7 @@ describe("Order", ()=> {
                 .should("contain", 25.5); //its('length').should('be.lt',11)
         });
 
-        it("starts at the 11th order on the next page", () => {
+        it("should start at the 11th order on the next page", () => {
             cy.get("ul.pagination")
                 .find("li")
                 .eq(2)
