@@ -38,42 +38,8 @@ describe("Orders", ()=>{
                             });
                     });
             });
-        cy.get("#pao").should("contain", "Place an Order").click()
+        cy.contains('.nav-item', 'Logout').click()
     });
-
-    it("should add an order", ()=>{
-        cy.get(".vue-title")
-            .eq(0)
-            .should("contain", "Create Order");
-        cy.get(".form-label")
-            .should("contain", "Choose Starter")
-            .eq(0);
-        cy.get("#starter").select("Soup")
-            .eq(0);
-        cy.get(".form-label")
-            .should("contain", "Choose a Main Course")
-            .eq(1);
-        cy.get("#main").select("Chicken")
-            .eq(0)
-        cy.get(".form-label")
-            .should("contain", "Choose a Dessert")
-            .eq(2);
-        cy.get("#dessert").select("Cheese Cake")
-            .eq(0)
-        cy.get(".form-label")
-            .should("contain", "Choose a Drink")
-            .eq(3);
-        cy.get("#drink").select("Coke")
-            .eq(0)
-        cy.get(".form-group")
-            .contains("Message")
-            .type("Extra Gravy");
-    });
-        it("should place an order", ()=> {
-            cy.wait(1000)
-            cy.get(".btn").should("contain", "Submit").click()
-            cy.contains('.nav-item', 'Logout').click()
-        });
-    });
+});
 
 
