@@ -13,6 +13,7 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
 import VueTables from 'vue-tables-2';
 import VueForm from 'vueform'
+import * as VueGoogleMaps from "vue2-google-maps";
 Vue.config.productionTip = false;
 library.add(faUserSecret)
 Vue.use(BootstrapVue);
@@ -30,6 +31,13 @@ Vue.use(VueForm, {
   inputClasses: {
     valid: 'form-control-success',
     invalid: 'form-control-danger'
+  }
+});
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "REPLACE-THIS-WITH-YOUR-KEY-FROM-ABOVE",
+    libraries: "places" // necessary for places input
   }
 });
 
