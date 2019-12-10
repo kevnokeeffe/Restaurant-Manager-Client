@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as auth from './src/services/AuthService';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
@@ -33,9 +33,7 @@ const store = new Vuex.Store({
     authenticate(context){
       context.commit('authenticate')
     }
-  },
-  modules: {
   }
-})
+});
 
 export default store

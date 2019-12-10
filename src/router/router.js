@@ -15,7 +15,14 @@ const routes = [
   {
     path: '/bill',
     name: 'bill',
-    component: () => import(/* webpackChunkName: "home" */ '../views/bills/BillsView.vue')
+    component: () => import(/* webpackChunkName: "home" */ '../views/bills/BillsView.vue'),
+    beforeEnter: (to,from,next)=>{
+      if(!auth.isLoggedIn){
+        next();
+      }else{
+        next('/login');
+      }
+    }
   },
   {
     path: '/login',
@@ -46,10 +53,10 @@ const routes = [
     name: 'orders-all',
     component: () => import(/* webpackChunkName: "order" */ '../views/orders/OrdersAll.vue'),
     beforeEnter: (toolbar,from,next)=>{
-      if(auth.isLoggedIn){
+      if(!auth.isLoggedIn){
         next();
       }else{
-        next('/');
+        next('/login');
       }
     }
   },
@@ -58,10 +65,10 @@ const routes = [
     name: 'orders-by-user',
     component: () => import(/* webpackChunkName: "order" */ '../views/orders/OrderByUser.vue'),
     beforeEnter: (toolbar,from,next)=>{
-      if(auth.isLoggedIn){
+      if(!auth.isLoggedIn){
         next();
       }else{
-        next('/');
+        next('/login');
       }
     }
   },
@@ -70,10 +77,10 @@ const routes = [
     name: 'orders-create',
     component: OrderCreate,
     beforeEnter: (toolbar,from,next)=>{
-      if(auth.isLoggedIn){
+      if(!auth.isLoggedIn){
         next();
       }else{
-        next('/');
+        next('/login');
       }
     }
   },
@@ -82,10 +89,10 @@ const routes = [
     name: 'order-edit',
     component: () => import(/* webpackChunkName: "order/edit" */ '../views/orders/OrderEdit.vue'),
     beforeEnter: (toolbar,from,next)=>{
-      if(auth.isLoggedIn){
+      if(!auth.isLoggedIn){
         next();
       }else{
-        next('/');
+        next('/login');
       }
     }
   },
@@ -94,10 +101,10 @@ const routes = [
     name: 'edit',
     component: OrderEdit,
     beforeEnter: (toolbar,from,next)=>{
-      if(auth.isLoggedIn){
+      if(!auth.isLoggedIn){
         next();
       }else{
-        next('/');
+        next('/login');
       }
     }
   },

@@ -1,6 +1,6 @@
 <template>
     <div id="app1">
-        <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messageTitle}}</h3>
+        <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{this.$store.state.fName}}{{messageTitle}}</h3>
         <div class="card custom-bg-dark">
             <div class="card-body">
                 <v-client-table class="table" :columns="columns" :data="orders" :options="options">
@@ -24,11 +24,11 @@
         name: "OrderByUser",
         data: function () {
             return {
-                messageTitle: 'Your Orders',
+                messageTitle: "'s Orders",
                 orders: [],
                 currentOrderId: null,
                 errors: [],
-                columns: [ 'userId','_id', 'starter', 'main', 'desert', 'drink', 'price', 'message', 'remove', 'edit'],
+                columns: ['_id', 'starter', 'main', 'desert', 'drink', 'price', 'message', 'remove', 'edit'],
                 options: {
                     perPage: 10,
                     filterable: [],
@@ -40,7 +40,6 @@
                     //     }
                     // }],
                     headings: {
-                        userId: 'User ID',
                         _id: 'ID',
                         starter: 'Starter',
                         main: 'Main',
