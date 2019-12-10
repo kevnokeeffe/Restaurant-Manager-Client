@@ -1,5 +1,5 @@
-describe("Add an Order", ()=> {
-    it('logs in using UI, and adds a new order', () => {
+describe("Testing create order page", ()=> {
+    it('should login using the UI, and add a new order', () => {
         cy.visit('/login')
         // enter valid username and password
         cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");

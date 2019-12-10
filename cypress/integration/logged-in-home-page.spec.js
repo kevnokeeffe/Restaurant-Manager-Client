@@ -1,28 +1,26 @@
 const url = "https://restaurant-manager-prod-app.herokuapp.com/"
 let accessKey;
-describe("Logged in home page", () => {
+describe("Testing the logged in home page", () => {
     before(() => {
         cy.visit("http://localhost:8080/login");
     });
 
-    describe("Body of Page", () => {
-        it("Shows a header", () => {
+    it("should show a login header", () => {
             cy.get(".h1")
                 .eq(0)
                 .should("contain", "Login");
         });
-        describe("Login",()=>{
-            it("should log in a user", () =>{
-                cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
-                cy.get("input[data-test=password]").type("123456");
-                cy.get("button[type=submit]").click();
-                cy.wait(3000)
-            });
-        });
+    it("should login a user", () =>{
+        cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
+        cy.get("input[data-test=password]").type("123456");
+        cy.get("button[type=submit]").click();
+        cy.wait(3000)
     });
 
-    describe("Navigation bar", () => {
-        it("Shows a header", () => {
+
+
+
+        it("should show the nav-bar header", () => {
             cy.get(".navbar")
                 .within(()=>{
                     cy.get(".navbar-brand").should("contain", "Restaurant Manager")
@@ -32,7 +30,7 @@ describe("Logged in home page", () => {
                 });
         });
 
-        it("Shows the required links", () => {
+        it("should show the required links", () => {
             cy.get(".collapse")
                 .eq(0)
                 .within(() => {
@@ -44,9 +42,12 @@ describe("Logged in home page", () => {
                                 .should("contain", "Home");
                             cy.get(".nav-item")
                                 .eq(1)
-                                .should("contain", "Orders");
+                                .should("contain", "All Orders");
                             cy.get(".nav-item")
                                 .eq(2)
+                                .should("contain", "Your Orders");
+                            cy.get(".nav-item")
+                                .eq(3)
                                 .should("contain", "Logout");
                             cy.get(".h4User")
                                 .eq(0)
@@ -54,10 +55,10 @@ describe("Logged in home page", () => {
                         });
                 });
         });
-    });
 
-    describe("Jumbotron", () => {
-        it("Shows the jumbotrons contents", () => {
+
+
+        it("should show the jumbotrons contents", () => {
             cy.get(".jumbotron")
                 .eq(0)
                 .within(() => {
@@ -76,14 +77,13 @@ describe("Logged in home page", () => {
                                 .eq(0);
                             cy.get(".btn").should("contain", "View Your Orders")
                                 .eq(1);
-                            cy.get(".btn").should("contain", "View Bills")
-                                .eq(2);
                             cy.get(".btn").should("contain", "Place an Order")
-                                .eq(3);
+                                .eq(2);
                         });
                 });
         });
-        it("Tests the jumbotrons buttons", () => {
+
+        it("should test the jumbotrons buttons", () => {
             cy.get(".btn").contains('View All Orders').click();
             cy.get(".nav-item")
                 .eq(0)
@@ -92,14 +92,13 @@ describe("Logged in home page", () => {
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
-            cy.get(".btn").contains('View Bills').click();
-            cy.get(".nav-item")
-                .eq(0)
-                .should("contain", "Home").click();
             cy.get(".btn").contains('Place an Order').click();
             cy.get(".nav-item")
                 .eq(0)
                 .should("contain", "Home").click();
         });
+        it("should logout",()=>{
+        cy.contains('.nav-item', 'Logout').click()
     });
- });
+});
+

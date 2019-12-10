@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 let accessKey;
 
-describe("Token", ()=>{
-it('Logs in using UI', () => {
+describe("Testing the token", ()=>{
+it('should login using the UI', () => {
     cy.visit('/login')
     // enter valid username and password
     cy.get("input[data-test=email]").type("kevokeeffe@gmail.com");
@@ -10,7 +10,7 @@ it('Logs in using UI', () => {
     cy.get("button[type=submit]").click();
 });
 
-it('Captures the token', () => {
+it('should capture the token', () => {
     // check login and capture token
     cy.location(()=>{
             const userString = window.localStorage.getItem('user')
@@ -26,6 +26,9 @@ it('Captures the token', () => {
             accessKey = user.token
             done();
     });
-    cy.contains('.nav-item', 'Logout').click()
 });
+    it('should logout', () => {
+        cy.contains('.nav-item', 'Logout').click()
+    });
+
 });

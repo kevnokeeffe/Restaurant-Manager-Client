@@ -1,10 +1,9 @@
-describe("Home page", () => {
-    beforeEach(() => {
+describe("Testing the home page", () => {
+    before(() => {
         cy.visit("http://localhost:8080")
     });
 
-    describe("Jumbotron", () => {
-        it("Shows the jumbotrons contents", () => {
+        it("should show the jumbotrons contents", () => {
             cy.get(".jumbotron")
                 .eq(0)
                 .within(() => {
@@ -26,10 +25,10 @@ describe("Home page", () => {
                         });
                 });
         });
-    });
 
-    describe("Navigation bar", () => {
-        it("Shows a header", () => {
+
+
+        it("should show the nav-bar header", () => {
             cy.get(".navbar")
                 .within(()=>{
                     cy.get(".navbar-brand").should("contain", "Restaurant Manager")
@@ -39,7 +38,7 @@ describe("Home page", () => {
                 });
         });
 
-        it("Shows the required links", () => {
+        it("should show the required links", () => {
             cy.get(".collapse")
                 .eq(0)
                 .within(() => {
@@ -61,10 +60,10 @@ describe("Home page", () => {
                             });
                 });
         });
-    });
 
-    describe("Footer", () => {
-        it("Shows the footers elements", () => {
+
+
+        it("should show the footers elements", () => {
             cy.get(".footer")
                 .eq(0)
                 .within(() => {
@@ -79,5 +78,5 @@ describe("Home page", () => {
                         .should("contain", "Terms of Service");
                 });
         });
-    });
+
 });

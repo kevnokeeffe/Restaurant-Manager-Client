@@ -14,7 +14,7 @@ describe("Check contents",()=>{
             .eq(0)
             .should("contain", "Kevin's Orders");
     });
-    it("displays first 10 orders only", () => {
+    it("should display the first 10 orders only", () => {
         cy.get("tbody")
             .find("tr")
             .should("have.length", 10);
@@ -30,7 +30,7 @@ describe("Check contents",()=>{
             .should("contain", 25.5); //its('length').should('be.lt',11)
     });
 
-    it("starts at the 11th order on the next page", () => {
+    it("should start at the 11th order on the next page", () => {
         cy.get("ul.pagination")
             .find("li")
             .eq(2)
