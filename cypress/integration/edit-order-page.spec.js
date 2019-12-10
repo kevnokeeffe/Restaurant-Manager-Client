@@ -37,10 +37,12 @@ describe("Testing editing an order",()=> {
             .eq(3);
         cy.get("#drink").select("Coke")
             .eq(0)
+        cy.get("#inputMessage").clear();
         cy.get(".form-group")
             .contains("Message")
-            .type("Extra Gravy");
+            .type("Really really hot with extra Gravy");
         cy.get(".btn").should("contain", "Submit").click()
+        cy.get(".typo__p").eq(0).should("contain","Processing...");
         cy.wait(1000)
         cy.contains('.nav-item', 'Logout').click()
     });
