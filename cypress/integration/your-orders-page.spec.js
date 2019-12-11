@@ -14,6 +14,15 @@ describe("Testing user's orders page",()=>{
             .eq(0)
             .should("contain", "Kevin's Orders");
     });
+    it('should find a jumbotron', () => {
+        cy.get(".card")
+            .within(() => {
+                cy.get(".btn").should("contain","Place an Order")
+                cy.get(".btn").should("contain","Delete")
+                cy.get(".btn").should("contain","Edit")
+            })
+    });
+
     it("should display the first 10 orders only", () => {
         cy.get("tbody")
             .find("tr")
@@ -26,8 +35,8 @@ describe("Testing user's orders page",()=>{
             .find("tr")
             .eq(9)
             .find("td")
-            .eq(5)
-            .should("contain", 25.5); //its('length').should('be.lt',11)
+            .eq(7)
+            .should("contain", "Delete");
     });
 
     it("should start at the 11th order on the next page", () => {
@@ -35,13 +44,13 @@ describe("Testing user's orders page",()=>{
             .find("li")
             .eq(2)
             .next()
-            .click(); // 2nd page link
+            .click();
         cy.get("tbody")
             .find("tr")
             .eq(0)
             .find("td")
-            .eq(5)
-            .should("contain", 25.5); //its('length').should('be.lt',11)
+            .eq(7)
+            .should("contain", "Delete")
     });
     it('should logout', () => {
         cy.contains('.nav-item', 'Logout').click()

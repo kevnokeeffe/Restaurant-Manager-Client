@@ -48,7 +48,7 @@
                         this.errors.push(error)
                         console.log(error)
                     })
-                next(this.$router.push({path:'/order'}))
+                next(this.$router.push({path:'/order/user'}))
             }
         }
     }

@@ -5,6 +5,7 @@ import store from '../store'
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import 'bootstrap'
+import * as auth from './services/AuthService';
 import BootstrapVue from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
@@ -19,12 +20,25 @@ Vue.use(BootstrapVue);
 Vue.config.productionTip = process.env.NODE_ENV ==='production';
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
+
 Vue.use(VueSweetalert2);
 
 Vue.use(VueTables.ClientTable, {
   compileTemplates: true,
   filterByColumn: true,
 });
+
+// Vue.use({
+//     created() {
+//         document.addEventListener('beforeunload', this.handler)
+//     },
+//     methods: {
+//         handler: function handler() {
+//             if (this.auth.isLoggedIn) {
+//                 auth.logout();}
+//         }
+//     }
+// })
 
 Vue.use(VueForm, {
   inputClasses: {

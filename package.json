@@ -16,7 +16,7 @@
     "postbuild": "cross-env NODE_ENV=dev vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "npm-run-all serve",
-    "cy:run": "cypress run --record --key 63ea4b50-345c-4d34-9b97-da337fb375b8",
+    "cy:run": "cypress run --record --key 99a23d20-0a3d-41d5-832d-0c7f88996230",
     "test": "start-server-and-test start http://localhost:8080 cy:run"
   },
   "dependencies": {
@@ -56,6 +56,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "firebase-tools": "^7.9.0",
+    "idle-vue": "^2.0.5",
     "ncp": "^2.0.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^14.1.1",
