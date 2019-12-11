@@ -19,8 +19,10 @@
 
 <script>
     import * as orderService from "../../services/OrderService";
-    //import {Event} from 'vue-tables-2'
-    //let MyUserID = this.$store.state.userId
+    import Vue from 'vue'
+    import VueTables from 'vue-tables-2'
+
+    Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
     export default {
         name: "OrderByUser",
         data: function () {
@@ -33,13 +35,6 @@
                 options: {
                     perPage: 10,
                     filterable: [],
-                    // customFilters: [{
-                    //     name: 'filter',
-                    //     callback: function (row) {
-                    //         //query = MyUserID;
-                    //         return row.userId[1] == this.$store.state.userId;
-                    //     }
-                    // }],
                     headings: {
                         _id: 'ID',
                         starter: 'Starter',
@@ -61,28 +56,35 @@
         },
         methods: {
             loadOrders: function () {
+                this.orders = []
                 orderService.getAllOrders()
                     .then(response => {
-                        // JSON responses are automatically parsed.
-
                         let newOrders = response.data
                         console.log("All orders: ",newOrders)
                         newOrders.forEach((item)=>{
-                            console.log("found: ", item)
-                            console.log("found user id: ", item.userId)
                             if(item.userId == this.$store.state.userId){
                                 this.orders.push(item)
                             }
                         })
-
                         console.log("End output: ",this.orders)
                     })
                     .catch(error => {
                         this.errors.push(error)
                     })
             },
-            filterMyOrders: function (){
+            editOrder: function (id) {
+                orderService.getAllOrders()
+                    .then(response => {
+                        response.data.forEach((item)=>{
+                            if(item.order._id == id) {
+                                this.$router.params = id
+                                this.$router.push('order/edit')}
+                            })
+                        })
             },
+                // this.$router.params = id
+                // this.$router.push('order/edit')
+
             deleteOrder: function (id) {
                 this.$swal({
                     title: 'Are you totaly sure?',
@@ -101,6 +103,7 @@
                                 // JSON responses are automatically parsed.
                                 this.message = response.data
                                 console.log(this.message)
+                                //this.$refs.table.data.splice()
                                 this.loadOrders()
                                 // Vue.nextTick(() => this.$refs.vuetable.refresh())
                                 this.$swal('Deleted', 'You successfully deleted this Order ' + JSON.stringify(response.data, null, 5), 'success')
@@ -114,11 +117,8 @@
                         this.$swal('Cancelled', 'Your Order has not been deleted!', 'info')
                     }
                 })
-            },
-            editOrder: function (id) {
-                this.$router.params = id
-                this.$router.push('order/edit')
-            },
+            }
+
         },
 
     }

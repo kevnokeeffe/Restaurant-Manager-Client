@@ -6,7 +6,6 @@
             <v-client-table class="table" :columns="columns" :data="orders" :options="options">
               <a slot="remove" slot-scope="props" class="btn btn-outline-danger align-items-center btn-sm" @click="deleteOrder(props.row._id)">Delete</a>
               <a slot="edit" slot-scope="props" class="btn btn-outline-warning btn-sm" @click="editOrder(props.row._id)">Edit</a>
-<!--              <router-link  slot="edit" slot-scope="props" type="button" tag="button" class="card-link btn btn-outline-primary" @click="editOrder(props.row._id)" ></router-link>-->
             </v-client-table>
       <router-link v-if="$store.state.isLoggedIn" id="pao" class="btn btn-success btn-lg display:inline ml-4" to="/order/new">Place an Order</router-link>
     </div>
