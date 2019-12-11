@@ -73,17 +73,17 @@
                     })
             },
             editOrder: function (id) {
+                const path = `/order/edit`
                 orderService.getAllOrders()
                     .then(response => {
+                        console.log("response:",response)
                         response.data.forEach((item)=>{
-                            if(item._id == id) {
+                            if(item._id === id){
                                 this.$router.params = item._id
-                                this.$router.push('order/edit')}
+                                this.$router.push(path)}
                             })
                         })
             },
-                // this.$router.params = id
-                // this.$router.push('order/edit')
 
             deleteOrder: function (id) {
                 this.$swal({
