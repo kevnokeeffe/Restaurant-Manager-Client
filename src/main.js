@@ -5,7 +5,7 @@ import store from '../store'
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import 'bootstrap'
-import * as auth from './services/AuthService';
+//import * as auth from './services/AuthService';
 import BootstrapVue from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
