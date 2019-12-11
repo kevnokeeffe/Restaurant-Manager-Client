@@ -44,8 +44,8 @@ describe("Testing all orders page", ()=> {
                 .find("tr")
                 .eq(9)
                 .find("td")
-                .eq(5)
-                .should("contain", 25.5); //its('length').should('be.lt',11)
+                .eq(7)
+                .should("contain", "Delete");
         });
 
         it("should start at the 11th order on the next page", () => {
@@ -58,8 +58,8 @@ describe("Testing all orders page", ()=> {
                 .find("tr")
                 .eq(0)
                 .find("td")
-                .eq(5)
-                .should("contain", 25.5); //its('length').should('be.lt',11)
+                .eq(7)
+                .should("contain", "Delete");
         });
         it("should logout",()=>{
             cy.contains('.nav-item', 'Logout').click()
