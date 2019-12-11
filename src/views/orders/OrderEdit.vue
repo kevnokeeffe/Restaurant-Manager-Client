@@ -62,4 +62,10 @@
         margin-left: auto;
         margin-right: auto;
     }
+    .vue-title {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 45pt;
+        margin-bottom: 20px;
+    }
 </style>

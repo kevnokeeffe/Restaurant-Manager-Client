@@ -76,8 +76,8 @@
                 orderService.getAllOrders()
                     .then(response => {
                         response.data.forEach((item)=>{
-                            if(item.order._id == id) {
-                                this.$router.params = id
+                            if(item._id == id) {
+                                this.$router.params = item._id
                                 this.$router.push('order/edit')}
                             })
                         })
