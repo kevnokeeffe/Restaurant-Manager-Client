@@ -27,18 +27,6 @@ Vue.use(VueTables.ClientTable, {
   filterByColumn: true
 });
 
-// Vue.use({
-//     created() {
-//         document.addEventListener('beforeunload', this.handler)
-//     },
-//     methods: {
-//         handler: function handler() {
-//             if (this.auth.isLoggedIn) {
-//                 auth.logout();}
-//         }
-//     }
-// })
-
 Vue.use(VueForm, {
   inputClasses: {
     valid: "form-control-success",
