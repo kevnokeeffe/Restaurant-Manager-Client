@@ -6,7 +6,7 @@
     </div>
     
     <alert ></alert>
-    <Footer><b-alert :message=mess_alr v-if="alerter"></b-alert></Footer>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -20,14 +20,9 @@ export default {
   beforeCreate: function() {
     this.$store.dispatch("authenticate");
   },
-  created() {
-    this.mess_alr = "create";
-    this.alerter = false;
-  },
+ 
   mounted: function() {
-    this.mess_alr = "mounted";
     this.inactivityTime();
-    this.alerter = false;
   },
   methods: {
     inactivityTime() {
@@ -38,7 +33,9 @@ export default {
       document.onkeypress = this.resetTimer;
     },
     logout() {
+      const path = `/`
       auth.logout();
+      this.$router.push(path);
     },
     resetTimer() {
       clearTimeout(this.interval);
@@ -46,8 +43,6 @@ export default {
     },
     countDown() {
       clearTimeout(this.interval);
-      this.mess_alr = "auto time out";
-      this.alerter = true;
       this.logout();
     }
   }
