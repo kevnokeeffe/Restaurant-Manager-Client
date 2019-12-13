@@ -15,5 +15,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "env": {
+    "VUE_APP_API_URL":"restaurant-manager-prod-app"
   }
 }

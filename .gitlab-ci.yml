@@ -42,8 +42,8 @@ Testing:
     - npm run test
 
 Develop_Deployment:
-  except:
-    - master
+  only:
+    - develop
   stage: build_deploy_develop
   before_script:
     - npm install

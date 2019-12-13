@@ -55,6 +55,7 @@
     "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "firebase-ci": "^0.9.1",
     "firebase-tools": "^7.9.0",
     "idle-vue": "^2.0.5",
     "ncp": "^2.0.0",
