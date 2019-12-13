@@ -4,8 +4,6 @@
     <div id="app-container">
       <router-view />
     </div>
-    
-    <alert ></alert>
     <Footer></Footer>
   </div>
 </template>
@@ -20,7 +18,7 @@ export default {
   beforeCreate: function() {
     this.$store.dispatch("authenticate");
   },
- 
+
   mounted: function() {
     this.inactivityTime();
   },
