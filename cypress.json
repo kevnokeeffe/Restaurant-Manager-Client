@@ -6,6 +6,7 @@
   "screenshotsFolder": "cypress/videos",
   "env": {
     "email": "kevokeeffe@gmail.com",
-    "password": "123456"
+    "password": "123456",
+    "VUE_APP_API_URL":"restaurant-manager-staging-app"
   }
 }
