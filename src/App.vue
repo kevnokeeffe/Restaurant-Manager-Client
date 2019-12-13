@@ -30,7 +30,8 @@ export default {
       document.onload = this.resetTimer;
       document.onmousemove = this.resetTimer;
       document.ontouchstart = this.resetTimer;
-      document.onclick = this.resetTimerdocument.onscroll = this.resetTimer;
+      document.onclick = this.resetTimer();
+      document.onscroll = this.resetTimer;
       document.onkeypress = this.resetTimer;
     },
     logout() {

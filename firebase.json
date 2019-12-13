@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "VUE_APP_API_URL":"restaurant-manager-prod-app",
     "public": "./dist",
     "ignore": [
       "firebase.json",
@@ -16,7 +17,7 @@
       }
     ]
   },
-  "env": {
+  "env": [{
     "VUE_APP_API_URL":"restaurant-manager-prod-app"
-  }
+  }]
 }

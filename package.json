@@ -1,6 +1,8 @@
 {
   "name": "rm-client",
+  "author": "Kevin O'Keeffe",
   "version": "0.1.0",
+  "description": "A Vue.js project",
   "private": true,
   "scripts": {
     "open": "npx cypress open",
@@ -28,7 +30,6 @@
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.3.2",
     "cypress": "^3.7.0",
-    "firebase-tools": "^7.9.0",
     "font-awesome": "^4.7.0",
     "httpserver": "^0.3.0",
     "jquery": "^3.4.1",
@@ -55,7 +56,9 @@
     "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "firebase-admin": "^8.8.0",
     "firebase-ci": "^0.9.1",
+    "firebase-functions": "^3.3.0",
     "firebase-tools": "^7.9.0",
     "idle-vue": "^2.0.5",
     "ncp": "^2.0.0",
