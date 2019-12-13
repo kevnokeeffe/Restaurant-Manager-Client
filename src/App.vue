@@ -18,8 +18,11 @@ export default {
   beforeCreate: function() {
     this.$store.dispatch("authenticate");
   },
-
+  created: ()=>{
+    window.addEventListener('beforeunload',auth.logout())
+  },
   mounted: function() {
+    //handler:(event)=>{auth.logout()}
     this.inactivityTime();
   },
   methods: {
