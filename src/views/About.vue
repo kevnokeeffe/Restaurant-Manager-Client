@@ -6,12 +6,12 @@
 </template>
 
 <script>
-  import Map from "../components/Map.vue";
-  export default {
-    name: 'about',
-    components: {Map},
-    beforeCreate: function(){
-      this.$store.dispatch('authenticate');
-    }
+import Map from "../components/Map.vue";
+export default {
+  name: "about",
+  components: { Map },
+  beforeCreate: function() {
+    this.$store.dispatch("authenticate");
   }
+};
 </script>
