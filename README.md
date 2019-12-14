@@ -22,7 +22,7 @@ This is the all orders page where all the orders from all useres on the database
 ![User Orders](./img/UserOrders.png)
 This is the page where all the orders for the specif user logged in are shown.
 
-![Add Order](./img/AddOrder.png)
+![Create Order](./img/CreateOrder.png)
 This page lets the user add an order to the database.
 
 ![Edit Order](./img/EditOrder.png)
