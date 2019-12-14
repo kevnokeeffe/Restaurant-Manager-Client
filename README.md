@@ -25,7 +25,7 @@ This is the page where all the orders for the specif user logged in are shown.
 ![Create Order](./img/CreateOrder.png)
 This page lets the user add an order to the database.
 
-![Edit Order](./img/EditOrder.png)
+![Edit Order](./img/EditAOrder.png)
 This page lets the user edit the selected order on the database.
 
 
