@@ -5,7 +5,7 @@ Name: Kevin O'Keeffe
 ## Client UI.
 
 ![Home](./img/Home.png)
-This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
+This is the default home page. Your options are to register or login. There is a short description of what the web app is about.
 
 ---
 
@@ -54,7 +54,7 @@ This page lets the user edit the selected order on the database.
 
 GitLab Pages URL of the coverage report for the Web API tests.
 
-https://kevnok.gitlab.com/restaurant-manager-4.0/coverage/lcov-report/
+https://kevnok.gitlab.io/restaurant-manager-4.0/coverage/lcov-report/
 
 ## GitLab CI.
 
