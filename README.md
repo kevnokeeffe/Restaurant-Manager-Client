@@ -3,19 +3,23 @@
 Name: Kevin O'Keeffe
 
 ## Client UI.
-
+---
 ![Home](./img/Home.png)
->>This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
+This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
 
+---
 ![Register](./img/Register.png)
 This is the Rregister page. Where a user can sign up.
 
+---
 ![Login](./img/Login.png)
 This is the login page where the user can login with valid credentials.
 
+---
 ![Login Home](./img/HomeLoggedIn.png)
 This is the home page the user is presented with when the user is logged in.
 
+---
 ![All Orders](./img/AllOrders.png)
 This is the all orders page where all the orders from all useres on the database are shown.
 
