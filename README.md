@@ -16,15 +16,15 @@ e.g.
 
 >>This is the Rregister page. Where a user can sign up.
 
-![Login][./img/Login.jpg]
+![Login]:[./img/Login.jpg]
 
 >>This is the login page where the user can login with valid credentials.
 
-[Login Home][./img/HomeLoggedIn.jpg]
+![Login Home]:(./img/HomeLoggedIn.jpg)
 
 >>This is the home page the user is presented with when the user is logged in.
 
-[All Orders][./img/AllOrders.jpg]
+![All Orders](./img/AllOrders.jpg)
 
 >>This is the all orders page where all the orders from all useres on the database are shown.
 
