@@ -24,11 +24,11 @@ e.g.
 
 >>This is the home page the user is presented with when the user is logged in.
 
-![All Orders][./img/AllOrders.jpg]
+[All Orders][./img/AllOrders.jpg]
 
 >>This is the all orders page where all the orders from all useres on the database are shown.
 
-![User Orders][./img/UserOrders.jpg]
+[User Orders]:./img/UserOrders.jpg
 
 >>This is the page where all the orders for the specif user logged in are shown.
 
@@ -40,15 +40,24 @@ e.g.
 
 ## Web API CI.
 
-(Optional) State the GitLab Pages URL of the coverage report for your Web API tests, e.g.
+GitLab Pages URL of the coverage report for the Web API tests.
 
-https://oconnordiarmuid.gitlab.io/donations-cicd/coverage/lcov-report/
+https://kevnok.gitlab.com/restaurant-manager-4.0/coverage/lcov-report/
 ## GitLab CI.
 
 - Deployment of client app to firebase hosting.
 - Uploading video results of Cypress test execution to a cypress.io dashboard.
 - Using Cypress Docker image that comes with necessary dependencies to run cypress test in a CI environment.
 
+Stageing Client: [Restaurant Manager Staging Site](http://cool-shake.surge.sh/).
+Staging API: [Restaurant Manager API](https://dashboard.heroku.com/apps/restaurant-manager-staging-app).
 
+Production Client: [Restaurant Manager Site](https://restaurantmanagerclient.web.app/).
+Production API: [Restaurant Manager API](https://dashboard.heroku.com/apps/restaurant-manager-prod-app).
+
+Client Gitlab Repo: [Restaurant Manager Client](https://gitlab.com/kevnok/restaurant-manager-client-side).
+API Gitlab Repo: [Restaurant Manager API](https://gitlab.com/kevnok/restaurant-manager-4.0).
+
+Cypress Dashboard URL: [Cyrpess Recordings](https://dashboard.cypress.io/projects/apx4gn/runs).
 
 [donate]: ./img/donate.png
