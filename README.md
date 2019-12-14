@@ -24,7 +24,7 @@ e.g.
 
 >>This is the home page the user is presented with when the user is logged in.
 
-![All Orders](./img/AllOrders.jpg)
+![All Orders](./img/Home.png)
 
 >>This is the all orders page where all the orders from all useres on the database are shown.
 
