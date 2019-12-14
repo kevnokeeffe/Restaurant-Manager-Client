@@ -9,7 +9,7 @@ This is the default home page when a user is logged out. Your options are to reg
 
 ---
 
-![Register](./img/Register.png)
+![Register](./img/RegisterUser.png)
 This is the Rregister page. Where a user can sign up.
 
 ---
@@ -62,7 +62,7 @@ https://kevnok.gitlab.com/restaurant-manager-4.0/coverage/lcov-report/
 - Uploading video results of Cypress test execution to a cypress.io dashboard.
 - Using Cypress Docker image that comes with necessary dependencies to run cypress test in a CI environment.
 
-Stageing Client: [Restaurant Manager Staging Site](http://cool-shake.surge.sh/).
+Staging Client: [Restaurant Manager Staging Site](http://cool-shake.surge.sh/).
 
 Staging API: [Restaurant Manager API](https://dashboard.heroku.com/apps/restaurant-manager-staging-app).
 
