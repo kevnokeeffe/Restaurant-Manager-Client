@@ -8,19 +8,19 @@ Name: Kevin O'Keeffe
 
 e.g.
 
-![Home][./img/hhome.png]
+[Home][./img/Home.png]
 
 >>This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
 
-![Register][./img/Register.jpg]
+[Register][./img/Register.jpg]
 
 >>This is the Rregister page. Where a user can sign up.
 
-![Login][./img/Login.jpg]
+[Login][./img/Login.jpg]
 
 >>This is the login page where the user can login with valid credentials.
 
-![Login Home][./img/HomeLoggedIn.jpg]
+[Login Home][./img/HomeLoggedIn.jpg]
 
 >>This is the home page the user is presented with when the user is logged in.
 
@@ -28,7 +28,7 @@ e.g.
 
 >>This is the all orders page where all the orders from all useres on the database are shown.
 
-[User Orders]:./img/UserOrders.jpg
+[User Orders]:[./img/UserOrders.jpg]
 
 >>This is the page where all the orders for the specif user logged in are shown.
 
