@@ -8,11 +8,11 @@ Name: Kevin O'Keeffe
 
 e.g.
 
-[Home]: img/Home.png
+[Home]: https://github.com/kevnokeeffe/Restaurant-Manager-ClientSide/tree/master/img/Home.png
 
 >>This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
 
-[Register][img/Register.jpg]
+[Register][https://github.com/kevnokeeffe/Restaurant-Manager-ClientSide/tree/master/img/Register.jpg]
 
 >>This is the Rregister page. Where a user can sign up.
 
