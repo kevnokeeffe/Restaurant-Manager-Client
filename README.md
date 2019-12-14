@@ -8,7 +8,7 @@ Name: Kevin O'Keeffe
 
 e.g.
 
-[Home][./img/Home.png]
+[Home]: ./img/Home.png
 
 >>This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
 
@@ -28,7 +28,7 @@ e.g.
 
 >>This is the all orders page where all the orders from all useres on the database are shown.
 
-[User Orders]:[./img/UserOrders.jpg]
+[User Orders]: ./img/UserOrders.jpg
 
 >>This is the page where all the orders for the specif user logged in are shown.
 
