@@ -8,7 +8,7 @@ Name: Kevin O'Keeffe
 
 e.g.
 
-![Home][./img/Home.png]
+![Home][./img/hhome.png]
 
 >>This is the default home page when a user is logged out. Your options are to register or login. There is a short description of what the web app is about.
 
