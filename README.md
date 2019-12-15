@@ -4,6 +4,8 @@ Name: Kevin O'Keeffe
 
 The purpose of this project is to create a restaurant manager full stack web application using the MEVN (MongoDB, Express, Vue.js and Node.js) framework. 
 
+[Demo Link](https://youtu.be/vLMOONja7YM)
+
 ### System features include:
 - Token user authentication and validation.
 - An auto logout feature when the user is idle for over 5 minutes.
