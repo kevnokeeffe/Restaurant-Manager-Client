@@ -1,4 +1,4 @@
-# Assignment 2 - Agile Software Practice.
+# Assignment 2 - Web App Development 2.
 
 Name: Kevin O'Keeffe
 
@@ -61,7 +61,7 @@ This page lets the user edit the selected order on the database.
 
 - Tests execution is being recorded and uploaded to cypress.io.
 - Authentication tests, including route guard.
-- Selector not covered in class: 'clear()'.
+- Selector not covered in class: 'clear()',cy.wait().
 
 ## Web API CI.
 
@@ -79,7 +79,7 @@ Staging Client: [Restaurant Manager Staging Site](http://cool-shake.surge.sh/).
 
 Staging API: [Restaurant Manager API](https://dashboard.heroku.com/apps/restaurant-manager-staging-app).
 
-Production Client: [Restaurant Manager Site](https://restaurantmanagerclient.web.app/).
+Production Client: [Restaurant Manager Prod Site](https://restaurantmanagerclient.web.app/).
 
 Production API: [Restaurant Manager API](https://dashboard.heroku.com/apps/restaurant-manager-prod-app).
 
